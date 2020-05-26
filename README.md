@@ -240,7 +240,21 @@ El Maestro proporciona registro de nombres y la búsqueda para el resto de los n
 #### e. Bags
 Las bolsas son un formato para guardar y reproducir datos de un mensaje de ROS, permitiéndonos almacenar una serie de órdenes y después repetirlas secuencialmente.
 
+### El desarrollo de un programa
 
+#### a. Espacio de trabajo
+Como en cualquier otro programa, en nuestro sistema necesitaremos un lugar donde trabajar, en este caso se requiere de un área para crear nuestras pilas y paquetes, y su posterior modificación en caso de ser necesario. Para crear un nuevo espacio de trabajo utilizaremos el comando rosws, que se utiliza de la forma: 
+          **$ rosws init [nombre del espacio de trabajo] [localización de los ﬁcheros de ros]**
+          
+Por ejemplo, para crear un espacio de trabajo llamado prueba UPCT lo haremos de la forma: 
+          **$ rosws init prueba UPCT  /opt/ros/fuerte**
+          
+Al ejecutar este comando, automáticamente se crearán una serie de archivos necesarios dentro de una carpeta localizada en home/nombre_de_usuario/prueba UPCT, en este caso nos creará setup.bash, setup.sh, setup.zsh además de un archivo oculto denominado .rosinstall dentro de esta carpeta.
 
+### Sistema de archivos
+Utilizando el comando rosws visto en el punto anterior, todos los paquetes serán incluidos de forma automática dentro de la variable ROS_PACKAGE_PATH cada vez que llamamos al archivo setup.bash del espacio de trabajo necesario. Por ejemplo, para poder crear una subcarpeta dentro de nuestro espacio de trabajo, utilizaremos la función mkdir y añadiremos la carpeta paquete prueba, y esto se haría de la siguiente forma:
+                      **$ mkdir prueba UPCT/paquete prueba**
 
-
+A continuación lo que haremos es seleccionar nuestro espacio de trabajo, para que de forma automática todos los paquetes se incluyen en el directorio anterior. 
+                      **$ rosws set home/Nombre_de_usuario/prueba UPCT/paquete prueba 
+                      $ source /prueba UPCT/setup.bash**
