@@ -258,3 +258,72 @@ Utilizando el comando rosws visto en el punto anterior, todos los paquetes será
 A continuación lo que haremos es seleccionar nuestro espacio de trabajo, para que de forma automática todos los paquetes se incluyen en el directorio anterior. 
                       **$ rosws set home/Nombre_de_usuario/prueba UPCT/paquete prueba 
                       $ source /prueba UPCT/setup.bash**
+                      
+Si queremos también se puede configurar el programa para dejar configurado el entorno de forma automática para cada vez que se abra un nuevo terminal, para ello utilizaremos las siguientes funciones:
+
+**$ echo"source/opt/ros/fuerte/setup.bash">>~/.bashrc 
+$ echo"exportROS_PACKAGE_PATH=~/miworkspace:$ROS_PACKAGE_PATH">> ~/.bashrc 
+$ echo"exportROS_WORKSPACE=~/miworkspace">>~/.bashrc 
+$ echo"exportROS_HOSTNAME=localhost">>~/.bashrc 
+$ echo"exportROS_MASTER_URI=http://localhost:11311">>~/.bashrc**
+
+#### a. Packages y Stacks
+Los Packages y los Stacks son los que anteriormente denominamos paquetes y pilas, pero le hemos dejado su nombre original para una mayor facilidad a la hora de familiarizarnos en esta parte del documento. Para ir a una ubicación especíﬁca dentro de un package o stack usaremos la función roscd, que se usa de la forma:
+**$ roscd Localizacion_del_ﬁchero**
+
+Si utilizamos esta función sin argumentos, nos llevará directamente al espacio de trabajo Para ver una lista con los ﬁcheros contenidos dentro de un package o stack tecleamos el código rosls:
+**$ rosls Localizacion_del_ﬁchero**
+
+Para esta última función existe una pequeña herramienta ya incorporada que nos ayudará en nuestro trabajo, ya que podemos empezar a escribir el nombre de los paquetes o las pilas y cuando tengamos más de dos letras escritas, si pulsamos la tecla tabulador, él nos completará el nombre de forma automática.
+
+#### b. Rospack
+Rospack es una herramienta que sirve para recuperar información en los paquetes de ROS, de forma parecida a como se haría bajo el entorno Linux con los comandos cd o ls. Podemos encontrar una amplia variedad de comandos que van desde la localización de paquetes de ROS en el sistema de archivos, a un listado de pilas disponibles. Una función que nos puede ayudar mucho sería:  
+**$ rospack help**
+
+Donde nos mostrará todos lo comandos disponibles bajo esta función. Un ejemplo de uno de los comandos disponibles sería, en el caso de querer encontrar un paquete, y se utilizaría de la forma: 
+**$ rospack ﬁnd Nombre_del_paquete**
+
+#### c. Rosstack
+Rosstack es una herramienta de línea de comandos que nos permite recuperar información sobre las pilas en ROS. Implementa una amplia variedad de comandos que van desde la localización de las pilas de ROS en el sistema de archivos, a la lista de pilas disponibles para el cálculo del árbol de dependencia de las pilas.También se utiliza en ROS para el cálculo de la información y para construir las pilas. Su uso es muy parecido al descrito en el apartado anterior con los packages, solo habría que sustituir pack por stack, es decir usar el comando:  **$ rosstack**
+
+### Motor de ejecución
+El motor de ejecución es una colección de nodos y programas básicos necesarios para poder trabajar con ROS, y es esencial para que todos los nodos se puedan comunicar entre sí. 
+Entre los nodos y programas básicos que se inician con el motor de ejecución podemos encontrar el master, el servidor de parámetros y el nodo rosout que es el encargado de trabajar con toda la información del registro de ROS. Este motor de ejecuta abriendo un terminal exclusivamente para él e introduciendo: 
+**$ roscore**
+Una vez introducido dicho comando, deberíamos ver algo parecido a esto:
+
+### Obtener datos
+
+#### a. Nodos
+Un nodo es como si fuera un ejecutable dentro del paquete de ROS, usa la librería cliente de ROS para comunicarse con otros nodos, y estos pueden publicar o subscribirse a un tópico, además de usar cualquier servicio. ROS nos permitirá usar nodos creados con otros lenguajes de programación (phyton y c+ +) Para poder acceder, modiﬁcar y crear cualquier nodo necesitaremos los paquetes: roscode, rosnode y rosrun.
+El primer paso será activar roscore tal y como hemos visto en el punto anterior. Justo después activaremos nuestro programa de prueba turtle y el nodo teleop turtle para poder ver su funcionamiento. Ahora vamos a veriﬁcar qué nodos están activos, para ello utilizaremos rosnode, introduciendo en el terminal: 
+**$ rosnode list**
+
+y se debería ver una respuesta:
+
+Esto signiﬁca que en este caso está activo el nodo “rosout” (es un nodo que siempre tiene que estar activo, y es el encargado de recoger y registrar todos los nodos de depuración), y los nodos turtlesim (nos muestra la tortuga por pantalla) y teleop turtle (encargada de mover la tortuga cuando pulsamos las teclas de dirección de nuestro equipo).
+
+#### b. Tópicos
+Los tópicos, o también llamados temas, es el sistema usado por los nodos para comunicarse entre ellos. Lo primero que debemos hacer para poder comprender los tópicos, es activar los nodos que queramos usar, para ello usamos la función del apartado anterior: 
+**$ rosrun [nombre_paquete] [nombre_nodo]**
+
+Por facilidad de comprensión y usabilidad, al igual que en los ejemplos anteriores, vamos a hacer uso de los archivos de prueba llamados turtlesim, y turtle teleop.  Ahora podremos usar las ﬂechas del teclado para describir una trayectoria (en caso que no puedas usar las ﬂechas para dirigirla, prueba a tener activa la pantalla de terminal correspondiente al nodo turtle_teleop_key). 
+Para poder ver más a fondo su funcionamiento, usaremos el paquete rqt_graph, cuya función es la de crear gráﬁcos dinámicos del sistema sobre lo que va a suceder en tiempo real. Para asegurarnos de que tenemos este paquete instalado usamos la siguiente función de terminal: 
+**$ sudo apt-get install ros -<distribucion-usada>-rqt**
+  
+Sustituyendo distribucion-usada, por tu distribución de ROS (Fuerte, Groovy, etc.)  Una vez veriﬁcado, o en su caso instalado el paquete, procedemos a usarlo, tecleando en un nuevo terminal: 
+**$ rosrun rqt_graph rqt_graph**
+
+El programa debería mostrar una pantalla parecida a la siguiente:
+
+Si pasas el cursor por encima de turtle1/command_velocity/ te mostrará en diversos colores los nodos y los tópicos de los que hace uso. Tal y como se puede observar, los nodos /turtlesim y /teleop_turtle, se comunican mediante el tópico turtle1/ command_velocity/
+
+El comando rostopic nos proporciona información acerca de los tópicos, y podemos acceder a las diferentes opciones que nos ofrece esta función con el comando: 
+**$ rostopic -h**
+
+Donde nos mostrará la ayuda de esta función:
+
+
+
+
+
