@@ -274,11 +274,11 @@ Las bolsas son un formato para guardar y reproducir datos de un mensaje de ROS, 
 #### a. Espacio de trabajo
 Como en cualquier otro programa, en nuestro sistema necesitaremos un lugar donde trabajar, en este caso se requiere de un área para crear nuestras pilas y paquetes, y su posterior modificación en caso de ser necesario. Para crear un nuevo espacio de trabajo utilizaremos el comando rosws, que se utiliza de la forma: 
           
-            $ rosws init [nombre del espacio de trabajo] [localización de los ﬁcheros de ros]
+     $ rosws init [nombre del espacio de trabajo] [localización de los ﬁcheros de ros]
           
 Por ejemplo, para crear un espacio de trabajo llamado prueba UPCT lo haremos de la forma: 
           
-            $ rosws init prueba UPCT  /opt/ros/fuerte
+    $ rosws init prueba UPCT  /opt/ros/fuerte
           
 Al ejecutar este comando, automáticamente se crearán una serie de archivos necesarios dentro de una carpeta localizada en home/nombre_de_usuario/prueba UPCT, en este caso nos creará setup.bash, setup.sh, setup.zsh además de un archivo oculto denominado .rosinstall dentro de esta carpeta.
 
