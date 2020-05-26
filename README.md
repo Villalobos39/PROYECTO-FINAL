@@ -35,6 +35,14 @@ El sistema es una estructura distribuida en procesos que permite a los ejecutabl
 
 ○ Modelo de bibliotecas: es el modelo de desarrollo preferido, consiste en escribir una serie de programas con interfaces funcionales y limpias que permitan una rápida modiﬁcación. 
 
+○ Independencia de idiomas: el marco ROS es fácil de implementar en cualquier lenguaje de programación moderno. Se ha implementado en Python, C++, y LISP; y actualmente existen  bibliotecas experimentales en Java y Lua.
+
+○ Modo test: ROS tiene una orden llamada ROSTEST que hace que sea fácil acceder a un modo prueba de sistema. 
+
+○ Escala: ROS es adecuada para sistemas grandes y ejecución de los procesos de gran tamaño.
+
+
+
 ### Compatibilidad con los sistemas operativos 
 ROS también es compatible con el sistema de repositorios, que permiten la colaboración a nivel internacional permitiendo tomar decisiones independientes sobre el desarrollo y la ejecución, pero con la ventaja de poder ayudarse de las herramientas o archivos creados por otros en sus proyectos.
 
@@ -63,10 +71,51 @@ Son recursos que se encuentran en el propio programa:
 ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/sistema-de-archivos-esquema.jpg)
 
 ### Computación a nivel Gráﬁco. 
-La computación a nivel gráﬁco es la red ROS que se encarga de procesar todos los datos. Un sistema de control de robot comprenderá usualmente muchos nodos.
+La computación a nivel gráﬁco es la red ROS que se encarga de procesar todos los datos. Los conceptos básicos son nodos , maestro , mensajes y temas,  los cuales proporcionan los datos de diferentes maneras: 
 
-Por ejemplo, un nodo controla un telémetro láser, un nodo controla los motores de las ruedas, un nodo realiza localización, un nodo realiza la planiﬁcación de ruta, un nodo proporciona una vista gráﬁca del sistema, y así sucesivamente. Sin el Maestro, los nodos no serían capaces de encontrar mensajes entre sí, intercambiar, o invocar los servicios. Un mensaje es simplemente una estructura de datos que comprende los tipos de campos. Los mensajes pueden incluir estructuras arbitrariamente anidadas y matrices .
+○ Nodos: Los nodos son procesos que llevan a cabo cálculos. ROS está diseñado para ser modular en una escala básica. Un sistema de control de robot comprenderá usualmente muchos nodos. 
 
-Un nodo envía un mensaje por publicar a un determinado tema. Un nodo que está interesado en un determinado tipo de datos se suscribe al tema correspondiente. Puede haber varios editores y suscriptores concurrentes a un mismo tema, y un único nodo puede publicar y / o suscribirse a múltiples temas. La comunidad y ROS.
+○ Maestro: El Maestro proporciona registro de nombres y la búsqueda para el resto de la Computación Gráﬁca. Sin el Maestro, los nodos no serían capaces de encontrar mensajes entre sí, intercambiar, o invocar los servicios.
 
-Los conceptos comunitarios ROS Nivel ROS son recursos que permiten a las comunidades el intercambio del software y del conocimiento.
+○ Mensajes: Los nodos se comunican entre sí pasando mensajes. Un mensaje es simplemente una estructura de datos que comprende los tipos de campos.
+
+○ Temas : Los mensajes se enrutan a través de un sistema de transporte de publicación / suscripción semántica. Un nodo envía un mensaje por publicar a un determinado tema. El tema es un nombre que se utiliza para identiﬁcar el contenido del mensaje.
+
+###La comunidad y ROS
+Los conceptos comunitarios ROS Nivel ROS son recursos que permiten a las comunidades el intercambio del software y del conocimiento. Estos recursos incluyen:
+
+○ Distribución: Son colecciones de versionadas en pilas que se pueden instalar. Las distribuciones juegan un papel similar al de las distribuciones de Linux.
+
+○ Repositorios: ROS se basa en una red federada de repositorios de código, donde diferentes instituciones pueden desarrollar y lanzar sus propios componentes de software del robot. 
+
+○ El wiki de ROS6: La comunidad Wiki es el foro principal para documentar la información sobre ROS. Cualquier persona puede inscribirse con una cuenta y contribuir con su propia documentación, facilitar las correcciones o actualizaciones, escribir tutoriales y más.
+
+○ Respuestas de ROS: un sitio de preguntas y respuestas para contestar a las preguntas relacionadas con ROS. 
+
+○ Blog: El blog de Willow Garage(creador de ROS) ofrece actualizaciones periódicas, incluyendo fotos y videos.
+
+###Instalación del sistema
+Vamos a comenzar con la toma de contacto con el programa, y para ello vamos a enumerar los pasos necesarios para poder usarlo en algunos de los sistemas operativos soportados, aunque en nuestro caso se detalla más Ubuntu ya que es con el que se ha realizado este documento.
+
+####a.Sistema Linux
+Primero comprobamos que tengamos actualizado nuestro sistema, en esta versión podemos encontrar en la parte izquierda de la pantalla principal el programa llamado “update manager”.
+
+a. Para comenzar abrimos la utilidad de Terminal. 
+
+b. A continuación preparamos el sistema para que acepte los paquetes de información de la página del repositorio packages.ros.org, para ello usamos la función correspondiente a nuestro sistema.
+
+**$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/ sources.list.d/ros-latest.list'**
+
+c. Tras introducir la función anterior, nos pedirá la contraseña de usuario para conﬁrmar que queremos aceptar esta función, y terminal volverá a modo espera.
+
+d. Lo siguiente es descargarte el ﬁchero correspondiente a tu teclado, para ello usamos la función:
+
+**$ wget http://packages.ros.org/ros.key -O - | sudo apt-key add**
+
+Una vez preparado nuestro sistema para instalar ROS procedemos a la instalación del sistema operativo, para ello usamos la función que nos descargara el sistema por completo (en el caso de tener algún tipo de problema con la instalación de alguna fase se puede instalar uno por uno todos los componentes necesarios).
+
+e. Primero comprobamos que esté todo actualizado con la función:
+**$ sudo apt-get update**
+
+f.Luego usamos la función:
+**$ sudo apt-get install ros-groovy-desktop-full**
