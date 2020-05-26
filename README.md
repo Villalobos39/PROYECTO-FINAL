@@ -7,7 +7,9 @@ Para poder sacar el máximo rendimiento a ROS, primero tenemos que comprender en
 #### Los robots exhiben tres elementos claves según la deﬁnición adoptada
 
 ○ Programable, lo que signiﬁca disponer de capacidades computacionales y de manipulación de símbolos (el robot es un computador). 
+
 ○ Capacidad mecánica, que lo capacita para realizar acciones en su entorno y no ! ser un mero procesador de datos (el robot es una máquina).
+
 ○ Flexibilidad, puesto que el robot puede operar según un amplio rango de ! programas y manipular material de formas distintas.
 
 ### ¿ Qué es ROS ?
@@ -17,10 +19,12 @@ Es similar a otras plataformas de desarrollo para robots existentes en la actual
 ### El objetivo de ROS
 El objetivo de ROS no es ser un sistema pionero en la robótica, el objetivo principal de ROS es apoyar el código reutilizable en la investigación robótica y el desarrollo. 
 El sistema es una estructura distribuida en procesos que permite a los ejecutables ser diseñados de forma individual y utilizarse de forma ﬂexible en tiempo real.
+
 ○ Sencillez: ROS está diseñado para ser tan sencillo como sea posible de modo que el código escrito para ROS se pueda utilizar con otros marcos robot de software. 
+
 ○ ROS es fácil de integrar con otros sistemas operativos de robots y ya ha sido integrado con OpenRAVE, Orocos y Player. 
 
-Modelo de bibliotecas: es el modelo de desarrollo preferido, consiste en escribir una serie de programas con interfaces funcionales y limpias que permitan una rápida modiﬁcación. 
+○ Modelo de bibliotecas: es el modelo de desarrollo preferido, consiste en escribir una serie de programas con interfaces funcionales y limpias que permitan una rápida modiﬁcación. 
 
 ### Compatibilidad con los sistemas operativos 
 ROS también es compatible con el sistema de repositorios, que permiten la colaboración a nivel internacional permitiendo tomar decisiones independientes sobre el desarrollo y la ejecución, pero con la ventaja de poder ayudarse de las herramientas o archivos creados por otros en sus proyectos.
@@ -34,11 +38,17 @@ ROS tiene tres niveles de conceptos: el nivel del sistema de archivos, el nivel 
 
 ### Sistema de archivos.
 Son recursos que se encuentran en el propio programa: 
+
 ○ Paquetes: Los paquetes son la unidad principal para organizar software en ROS. Un paquete puede contener procesos ejecutables (nodos), una biblioteca dependiente, conjuntos de datos, archivos de conﬁguración, o cualquier otra cosa que sea útil para una organización conjunta. 
+
 ○ Maniﬁestos: proporcionan metadatos sobre un paquete, incluyendo su información de licencia y dependencias, así como información especíﬁca del compilador. 
+
 ○ Pilas: Es una colección de paquetes que tienen una misma función. 
+
 ○ Maniﬁestos de pilas: proporcionan datos sobre una pila, incluyendo su información de licencia y sus dependencias en otras pilas.
+
 ○ Mensajes: deﬁnen las estructuras de datos para los mensajes enviados en ROS.
+
 ○ Servicios:  deﬁnen la solicitud y estructuras de datos de respuesta de los servicios requeridos por ROS.
 
 ### Computación a nivel Gráﬁco. 
