@@ -100,5 +100,75 @@ e. Primero comprobamos que esté todo actualizado con la función:
 **$ sudo apt-get update**
 
 Los conceptos comunitarios ROS Nivel ROS son recursos que permiten a las comunidades el intercambio del software y del conocimiento.
+
 f.Luego usamos la función:
 **$ sudo apt-get install ros-groovy-desktop-full**
+
+Y nada más pulsar la tecla intro el programa se pondrá a funcionar descargando todo lo necesario para que el sistema funcione.
+Durante la instalación podremos conﬁgurar varios aspectos que tendrá nuestro sistema, como por ejemplo si solo va a trabajar en modo local, o se podrá utilizar también en remoto.
+
+g. Cuando termine de descargar e instalar todos los paquetes deberemos ver algo parecido a esto:
+
+h. A continuación iniciamos el programa rosdep y comprobamos que esté actualizado, para ello usamos primero la función: **$ sudo rosdep init**
+
+i. Luego la función:  **$ rosdep update**
+
+Ya tenemos ROS instalado en nuestro sistema Ubuntu, y ahora solo nos quedaría añadir un par de configuraciones más que son recomendables.
+
+j. La primera es para que las variables de entorno que creemos se añadan automáticamente a nuestra sesión, para ello usamos la función:
+**$ echo “source /opt/ros/groovy/setup.bash” >> ~/.bashrc**
+
+Luego: 
+**$ source ~/.bashrc**
+
+k. También es conveniente instalar rosinstall, que es un añadido que nos permitirá descargarnos fácilmente el código fuente de muchos añadidos con solo un comando, para ello usamos el comando: 
+**$ sudo apt-get install python-rosinstall**
+
+l. Tras esto ya tendremos nuestro sistema listo para trabajar con el.
+
+#### b. Sistemas MAC OS X
+Para proceder a instalar ROS en MAC OS X, primero deberemos descargarnos un programa denominado Homebrew que nos permitirá y ayudará a instalar todo lo necesario para poder trabajar con él.
+
+La aplicación homebrew se instala escribiendo en el terminal de MAC OS X el siguiente código:
+**ruby -e “$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)”**
+
+tras indicarle al programa que estamos seguros que queremos instalar el programa, se descargara e instalara todo los componentes del programa De forma adicional podemos ejecutar desde terminal el código:
+**brew doctor** 
+
+El programa comprobará los archivos que va a necesitar, si están instalados o desactualizados. 
+Lo siguiente que debemos hacer es instalar el software adicional necesario:
+**$ brew update 
+$ brew install cmake**
+
+Ahora comenzamos a descargar los primeros ﬁcheros necesarios para ROS, en este caso la distribución Hydro.
+**$ brew tap ros/hydro 
+$ brew tap Homebrew/science**
+
+Ahora necesitaremos añadir a nuestro ﬁchero /.bashrc lo necesario para que hombrew trabaje de forma conjunta con terminal: 
+**export PATH=/usr/local/bin:/usr/local/share/python:$PATH**
+export PYTHONPATH=” /usr/local/python2.7 /site-packages:$PYTHONPATH” 
+
+Ahora conﬁguramos el terminal para que cada vez que lo abramos no tengamos que introducir esta última parte del código:
+**$ brew untap ros/DISTRO**
+
+Ahora prepararemos nuestro sistema para poder descargar los ultimos ﬁcheros necesarios para usar ROS:
+**$ sudo easy_install pip
+$ sudo pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg Distribute 
+$ sudo rosdep init 
+$ rosdep update**
+
+Ahora vamos a crear un espacio de trabajo para catkin. 
+**$ mkdir ~/ros_catkin_ws 
+$ cd ~/ros_catkin_ws**
+
+Ahora vamos a instalar las librerías o complementos necesarios para ROS:
+**$ rosinstall_generator desktop-full --rosdistro hydro --deps --wer-only > hydro-desktop-fullwet.rosinstall
+$ wstool init -j8 src hydro-desktop-wet.rosinstall**
+
+También podemos descargar lo básico para el uso usando los dos códigos anteriores, pero solo poniendo desktop en lugar de desktop-full. Ahora procedemos a comprobar que tenemos todas las dependencias requeridas:
+**$ rosdep install --from-paths src --ignore-src --rosdistro hydro -y**
+
+Así ya tendremos nuestro sistema preparado para poder usar ROS.
+
+
+
