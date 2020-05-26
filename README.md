@@ -4,7 +4,7 @@
 
 Para poder sacar el máximo rendimiento a ROS, primero tenemos que comprender en qué consiste el sistema, y cuales son sus principales ventajas respecto al resto de sistemas que se pueden encontrar hoy en día. Un robot es una máquina controlada por ordenador y programada para moverse, manipular objetos y realizar trabajos a la vez que interacciona con su entorno.
 
-### Los robots exhiben tres elementos claves según la deﬁnición adoptada
+#### Los robots exhiben tres elementos claves según la deﬁnición adoptada
 
 Capacidad mecánica, que lo capacita para realizar acciones en su entorno y no ! ser un mero procesador de datos . Flexibilidad, puesto que el robot puede operar según un amplio rango de ! programas y manipular material de formas distintas. La idea más ampliamente aceptada de robot está asociada a la existencia de un dispositivo de control digital que, mediante la ejecución de un programa almacenado en memoria, va dirigiendo los movimientos de un brazo o sistema mecánico.
 
