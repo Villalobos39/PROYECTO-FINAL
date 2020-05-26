@@ -411,5 +411,120 @@ Tenemos multitud de opciones a la hora de utilizar Gazebo, en este caso vamos a 
 
 Esto nos abrirá una ventana parecida a esta.
 
+Ahora vamos a añadir el robot citado anteriormente, en este caso el robot PR2
+**$ rosmake pr2_gazebo 
+$ roslaunch pr2_gazebo pr2.launch**
 
+Una vez que tengamos el robot en nuestro mundo virtual, ya podremos utilizarlo como si estuviéramos en la vida real, o bien mediante nodos automatizados, o bien añadiendo nodos que nos permitan moverlo de forma manual.Y ahora vamos a añadir el robot citado anteriormente, en este caso el robot PR2:
+**$ rosmake pr2_gazebo 
+$ roslaunch pr2_gazebo pr2.launch**
+
+Una vez que tengamos el robot en nuestro mundo virtual, ya podremos utilizarlo como si estuviéramos en la vida real, o bien mediante nodos automatizados, o bien añadiendo nodos que nos permitan moverlo de forma manual.
+Cuando terminemos de trabajar con el programa, para cerrarlo simplemente tendremos que ir a la ventana de terminal donde lo activamos y pulsar la combinación de teclas Ctrl + C.
+
+### Aplicación
+
+#### a. Creando nuestra aplicación
+Ahora que ya conocemos el sistema de ROS en profundidad vamos a proceder a crear nuestro propio programa, y que mejor para mostrar su funcionamiento que crear el primer programa típico en todos los sistemas, el denominado “Hola Mundo”, para ello vamos a generar nuestro espacio de trabajo.  El paquete que contendrá nuestro programa y un nodo que muestre por pantalla esta frase.
+
+#### b. Preparando el sistema
+Lo  primero que vamos a hacer es crear nuestro espacio de trabajo, esto nos permitirá tener un lugar donde guardar nuestro programa y poder trabajar tanto con el que vamos a crear ahora como con proyectos personales futuros. 
+Vamos a crear nuestro espacio de trabajo, indicando a nuestro sistema que genere todo lo necesario para utilizarlo como un paquete de ROS, al igual que lo tiene en el directorio opt/ROS:
+**rosws init ~/groovy_workspace /opt/ros/groovy**
+
+Para crear nuestro directorio utilizaremos el comando mkdir, de la forma:
+**$ mkdir [espacio/de/trabajo]**
+
+En nuestro ejemplo hemos decidido crear nuestro espacio de trabajo dentro de una carpeta llamada UPCT en el directorio groovy_workspace: 
+**$ mkdir ~/groovy_workspace/UPCT**
+
+Ahora procedemos a indicarle a nuestro sistema que este directorio recién creado va a ser un espacio de trabajo de ROS:
+**$ rosws set ~/groovy_workspace/UPCT**
+
+Ahora lo que hay que hacer es conﬁgurar el archivo .bash para indicarle a cada terminal donde debe trabajar:
+**$ source ~/groovy_workspace/setup.bash**
+
+Hay que destacar que deberemos de utilizar este último comando en cada uno de los terminales abiertos que queramos trabajar con nuestro sistema, o bien conﬁgurarlo dentro del repositorio general para que lo seleccione de forma automática. 
+
+Para conﬁrmar que nuestro directorio lo reconoce ROS como un directorio válido de trabajo utilizaremos la función: 
+**$ echo $ROS_PACKAGE_PATH**
+
+A lo que veremos una pantalla parecida a esta:
+
+#### c. Creando nuestro paquete
+Ahora vamos a crear nuestro paquete, que será capaz de contener nuestro programa. Lo primero que vamos a hacer es acceder al espacio que hemos creado, para ellos usamos en nuestro caso la función: 
+**$ cd ~/groovy_workspace/UPCT**
+
+Ahora procedemos a crear el paquete que contendrá nuestro futuro programa: 
+**$ roscreate-pkg UPCT_PFC std_msgs rospy roscpp 55**
+
+Mediante esta función generamos un paquete llamado UPCT_PFC que depende de std_msgs, rospy y roscpp:
+
+Ahora lo que vamos a hacer es comprobar que ROS es capaz de encontrar este nuevo paquete :  **$ rospack ﬁnd UPCT_PFC**
+
+A lo que veremos en pantalla una respuesta como esta:  **/home/parallels/groovy_workspace/UPCT/UPCT_PFC**
+
+Ahora procedemos a construir nuestro paquete y para ellos solo tenemos que introducir en nuestro terminal: **$ rosmake UPCT_PFC**
+
+#### d. Preparando nuestro programa
+Ahora vamos a hacer unos pasos opcionales pero altamente recomendables antes de empezar a crear nuestro programa, que es modiﬁcar los ﬁcheros Manifest.xml y Mainpage.dox En este caso Linux trae su propia función para editar estos documentos llamado gedit Primero accedemos a la carpeta contenedora :
+**$ cd UPCT_PFC**
+
+Ahora usamos la función descrita antes para modiﬁcar nuestro ﬁchero: 
+**$ gedit manifest.xml
+$ gedit mainpage.dox**
+
+Estos ﬁcheros nos ayudan a tener una idea general del proyecto, de su autor y de su forma de funcionar, y puede ayudar a cualquier persona a saber si lo que busca lo va a encontrar en este paquete o no, así como mantener una forma de jerarquizar los paquetes iguales para todo el mundo.
+
+#### e. Construyendo nuestro programa
+Ahora que ya tenemos todo listo procedemos a crear nuestro ﬁchero ejecutable, para ello vamos a nuestro sistema de ﬁcheros la /UPCT_PFC / src, y le damos al botón derecho y pulsamos en crear un nuevo documento, documento en blanco. El siguiente paso es poner el nombre a nuestro ﬁchero en este caso lo llamaremos holamundo.cpp
+
+A continuación abrimos el ﬁchero que acabamos de crear con un programa de edición de texto, o bien usando gedit tal y como lo hemos usado en el apartado anterior, y copiamos el siguiente código:
+
+Tras introducir el código, lo guardamos y lo cerramos, y ahora procedemos a editar el ﬁchero CMakeList.txt y añadimos al ﬁnal de todo el código: 
+**rosbuild_add_executable(hola_mundo src/holamundo.cpp)**
+
+Esto hace que cuando generemos nuestro programa el sistema generará un ejecutable con el nombre hola_mundo, y cuyo código estará en la carpeta src/holamundo.cpp. 
+Una vez realizado esto, debemos generar nuestro programa, para ello introducimos en nuestro terminal:  **$ make** 
+
+Lo que nos tras unos segundos nos devolverá una salida por pantalla parecida a esta:
+
+Así tendremos nuestro programa creado y listo para ser usado.
+
+#### f. Arrancando nuestro programa
+Una vez ya tenemos nuestro programa creado vamos a proceder a probarlo, para ello lo que hacemos es llamar a nuestro nodo tal y como hemos enseñado dentro del apartado correspondiente 
+Lo primero que hay que hacer es llamar a nuestro nodo master, es decir, abrimos un nuevo terminal y ejecutamos 
+**$ roscore**
+
+Ahora volvemos a nuestro terminal primero en introducimos la función 
+**$ rosrun UPCT_PFC hola_mundo**
+
+Tras lo que veremos una salida por pantalla parecida a esta:
+
+En el caso que no se inicie el programa, comprueba que tienes en una pantalla de terminal diferente activado roscore, y que en la pantalla con la que estás trabajando has ejecutado con anterioridad la función:
+
+**$ source ~/groovy_workspace/setup.bash**
+
+Ahora vamos a comprobar de forma gráﬁca que nuestro nodo está en funcionamiento, para ello abrimos una nueva pantalla de terminal y ejecutamos:  **$ rqt_graph**
+
+### Conclusión
+Como hemos podido ver a lo largo de todo el documento, el sistema ROS es un sistema robótico muy completo que nos permite utilizar tanto el código antiguo de otros proyectos, como uno nuevo generado directamente para nuestro sistema, además de contar con soporte para una gran multitud de robots y sensores existentes en el mercado, y otra de las ventajas de las que se ha hablado es de una gran comunidad que se está dedicando a mejorar día a día el sistema, así como de ampliar las compatibilidades tanto con sistemas nuevos (como puede ser Raspberry Pi), como con los últimos sensores y actuadores disponibles en el mercado. ROS es un sistema que en la actualidad cuenta con una gran cantidad de personas a nivel mundial que se dedican al mantenimiento y creación de nuevos repositorios, así como a la mejora del propio sistema, provocando una rápida adaptación a cualquier cambio.
+Respecto a la compatibilidad, ROS es casi totalmente compatible con repositorios antiguos, lo que nos permite utilizar la programación que ya tenemos de otros sistemas y portarlos a este, permitiéndonos mover esta programación a casi cualquier máquina, y aquí  es donde podemos encontrar un el primer pero, ya que aunque la comunidad está trabajando fuertemente que se pueda utilizar en cualquier ordenador, a día de hoy solo pueden asegurar el correcto funcionamiento de ROS en sistemas GNU (Linux) y MAC OS X, y se están encontrando con algunos fallos de programación en sistemas Windows y Raspberry Pi, este último debido a que es un sistema totalmente nuevo y aún poco extendido. Cabe destacar que un sistema que está soportado por una gran comunidad tiene inﬁnidad de cosas positivas, pero también tiene varios apartados negativos, el primero de ellos es que al existir gran cantidad de repositorios, no todos tienen porque funcionar totalmente, y la solución a los errores de estos dependen también de la comunidad, lo que puede hacer que si es un repositorio que no sea usado normalmente, el fallo no sea descubierto de inmediato, y la corrección tarde en llegar; y otro de los principales problemas que puede suceder, es que hoy en día cualquier fundación o sistema de este tipo necesita unos recursos bastante abundantes que son muy difíciles de cubrir con donaciones, y con pequeñas contribuciones por parte de empresas privadas, lo que puede llevar a que en épocas de crisis o con una competencia fuerte las empresas y socios preﬁeran invertir ese dinero en otros sistemas, pudiendo llegar a la descontinuación de ROS provocando la migración obligatoria a otros sistemas.
+Como futuros proyectos propuestos se podría dividir en dos vertientes, una más teórica, en la cual se pueden desarrollar robots en los entornos virtuales descritos en este documento, e incluso generar un Robot de los disponibles en los laboratorios, para comprobar que todo el programa funcionan de forma correcta,y una vertiente real, donde se vaya utilizando ROS para generar el código necesario para mover un robot real, al que se le pueden ir añadiendo más funciones con el paso del tiempo. Por supuesto estas dos vertientes pueden ser complementaria, ya que lo ideal sería generar un robot en el sistema virtual, probar que todo el código es completamente funcional, y luego cargarlo en nuestro robot real.
+
+### Fuentes
+○ www.ros.org   
+○ www.willowgarage.com   
+○ www.bipedolandia.es 
+○ http://www.generationrobots.com/en/content/55-ros-robot-operating-system  
+○ http://geeksroom.com/2013/08/ros-el-estandar-de-facto-de-la-industria-de-los-robots 
+○ http://readwrite.com/2013/05/09/how-an-open-source-operating-system-jumpstartedrobotics-research#awesm=~ogKpiH3BrKRskJ  
+○ http://robociencia.com/introduccion-a-ros/  
+○ https://moodle2012-13.ua.es/moodle/mod/wiki/view.php?id=23601 
+○ http://robociencia.com/ros-el-futuro-de-la-robotica-autonoma/ 
+○ http://www.bipedolandia.es/t1654-explicacion-detallada-de-50-minutos-delfuncionamiento-de-kinect-y-ros-robot-operating-system  
+○ http://www.automatizar.org/2011/09/creando-aplicaciones-para-robots.html  
+○ http://www.instructables.com/id/Getting-Started-with-ROS-Robotic-Operating-Syste/  
+○ ROS By Example GROOVY - Volume 1   Autor: R. Patrick Goebel  
+○ http://es.wikipedia.org/wiki/Robótica 
 
