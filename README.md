@@ -6,7 +6,9 @@ Para poder sacar el máximo rendimiento a ROS, primero tenemos que comprender en
 
 #### Los robots exhiben tres elementos claves según la deﬁnición adoptada
 
-Capacidad mecánica, que lo capacita para realizar acciones en su entorno y no ! ser un mero procesador de datos . Flexibilidad, puesto que el robot puede operar según un amplio rango de ! programas y manipular material de formas distintas. La idea más ampliamente aceptada de robot está asociada a la existencia de un dispositivo de control digital que, mediante la ejecución de un programa almacenado en memoria, va dirigiendo los movimientos de un brazo o sistema mecánico.
+○ Programable, lo que signiﬁca disponer de capacidades computacionales y de manipulación de símbolos (el robot es un computador). 
+○ Capacidad mecánica, que lo capacita para realizar acciones en su entorno y no ! ser un mero procesador de datos (el robot es una máquina).
+○ Flexibilidad, puesto que el robot puede operar según un amplio rango de ! programas y manipular material de formas distintas.
 
 ### ¿ Qué es ROS ?
 
