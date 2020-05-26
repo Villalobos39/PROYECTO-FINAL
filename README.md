@@ -60,6 +60,8 @@ Son recursos que se encuentran en el propio programa:
 
 ○ Servicios:  deﬁnen la solicitud y estructuras de datos de respuesta de los servicios requeridos por ROS.
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/sistema-de-archivos-esquema.jpg)
+
 ### Computación a nivel Gráﬁco. 
 La computación a nivel gráﬁco es la red ROS que se encarga de procesar todos los datos. Un sistema de control de robot comprenderá usualmente muchos nodos.
 
