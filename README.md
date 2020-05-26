@@ -41,8 +41,6 @@ El sistema es una estructura distribuida en procesos que permite a los ejecutabl
 
 ○ Escala: ROS es adecuada para sistemas grandes y ejecución de los procesos de gran tamaño.
 
-
-
 ### Compatibilidad con los sistemas operativos 
 ROS también es compatible con el sistema de repositorios, que permiten la colaboración a nivel internacional permitiendo tomar decisiones independientes sobre el desarrollo y la ejecución, pero con la ventaja de poder ayudarse de las herramientas o archivos creados por otros en sus proyectos.
 
@@ -170,7 +168,7 @@ También podemos descargar lo básico para el uso usando los dos códigos anteri
 
 Así ya tendremos nuestro sistema preparado para poder usar ROS.
 
-#### c.Sistemas Windows
+#### c. Sistemas Windows
 Este es posiblemente el más sencillo de todos los sistemas para instalar ROS, aunque no se debe olvidar que los ﬁcheros para trabajar con Windows están en fase Beta, y no están exentos de fallos de programación, y desde la propia página de Willow Garage nos invitan  a ayudar a mejorarlo.
 Para proceder a la instalación solo deberemos ir a la página:
  http://wiki.ros.org/win_ros/hydro/Msvc%20SDK 
@@ -178,7 +176,7 @@ descargarnos y ejecutar los ﬁcheros necesarios para su correcto funcionamiento
 
 ### Primeros pasos con ROS
 
-#### 1.Iniciar/configurar el programa
+#### 1. Iniciar/configurar el programa
 Una vez que tenemos el sistema en nuestro ordenador, vamos a proceder a mostrar el funcionamiento básico de ROS para más adelante poder comprender más a fondo el sistema a nivel jerárquico.
 En este caso para probar que la configuración del programa sea la correcta vamos a utilizar uno de los programas ya creados y que podemos encontrar dentro de la página de ROS, hablamos de turtlesim, que es un sencillo programa que utilizaremos de aquí en adelante para nuestro ejemplo.
 
@@ -187,5 +185,62 @@ a. Para descargarnos esta distribución a nuestro sistema utilizaremos el comand
 b. Después de introducir nuestra contraseña de administrador nos debería aparecer una pantalla como esta:
 
 c. Cuando llegue al 100% terminal volverá al modo de espera y ya tendremos instalado nuestro ejemplo.
+
+#### 2. Ejecutar un programa
+a. Para ejecutar nuestro programa de prueba tendremos que abrir una nueva ventana de terminal y teclear: **$ rosmake turtlesim**
+
+b. Luego del que el programa nos generará todo el directorio turtlesim con todo lo necesario para trabajar con él.
+
+También señalar que este paso solo es necesario la primera vez que ejecutamos el programa, las demás veces podremos obviar este paso, ya que en nuestro sistema ya tendremos todos los ﬁcheros generados y solo habrá que activarlos.
+
+c. Después solo tendremos que teclear **$ rosrun turtlesim turtlesim_node**
+
+d. Finalmente con esto veremos algo parecido a esto:
+
+#### 3. Ejecutar un subprograma
+Ahora vamos a proceder a interactuar con nuestro programa, para ello vamos a activar un subprograma que nos va a permitir manejar con el teclado la tortuga que vemos en nuestra pantalla.
+
+a. Para ello abrimos una nueva ventana de terminal e introducimos: **$ rosrun turtlesim turtle_teleop_key**
+
+b. Ahora ya puedes mover con las teclas de dirección la tortuga del ejemplo.
+
+### ROS en profundidad
+Tras una breve explicación vamos a proceder a una explicación más en profundidad de cómo funciona ROS, su jerarquía y su forma de trabajar.
+
+#### Estructura
+Lo primero que vamos a ver es la estructura del sistema operativo, de lo más global (repositorio) a lo mas especiﬁco (nodo).
+
+#### Repositorio
+Son ﬁcheros compuestos por uno o más paquetes y pilas, y que nos permiten descargarnos los ﬁcheros necesarios de forma más cómoda.
+
+#### Pila (Stack)
+Es una colección de paquetes que comparten una misma funcionalidad, sería el equivalente a una librería en otros sistemas de programación, y dentro de estos podemos encontrar unos ﬁcheros con metadatos que nos proporcionan la información para que estos funcionen de forma correcta (dependencias, compilación...).
+
+#### Paquete
+Es la unidad principal de organización en ROS, contiene todo lo necesario para hacer ser funcional y es análogo a un paquete en C.
+
+#### Nodo
+Son los procesos ejecutable que están incluidos dentro de los paquetes. Normalmente se utilizan varios nodos en los programas.
+
+### Computación en ROS
+
+#### a. Servicios
+Es el tipo de arquitectura encargada de realizar la comunicación entre nodos, utilizan dos tipos de mensajes, uno para la solicitud, y otro que es la respuesta dada por el otro nodo a esa petición. En los programas podremos encontrar nodos servidor y nodos clientes. Tras realizar la solicitud, el nodo servidor se queda en modo espera hasta recibir respuesta por parte del nodo cliente, y en el caso de que sea el cliente el que realiza una petición, el nodo servidor la procesa y responderá al cliente con la información requerida.
+
+#### b. Tópicos
+Tópicos o temas, son los nombres que identiﬁcan el contenido de un mensaje; y estos se enrutan de dos formas, una publicador y otra suscriptor. Un nodo que está interesado en un determinado tipo de datos se suscribe al tema correspondiente. 
+Puede haber varios editores y suscriptores concurrentes a un mismo tema, y un único nodo puede publicar y / o suscribirse a múltiples temas.  En general, los editores y suscriptores no son conscientes de la existencia de los demás. 
+
+#### c. Mensajes
+Los nodos se comunican entre sí pasando mensajes. Un mensaje es simplemente una estructura de datos, que comprende los tipos de campos.
+
+#### d. Maestro
+El Maestro proporciona registro de nombres y la búsqueda para el resto de los nodos. Sin el Maestro, estos no serían capaces de encontrar mensajes entre sí, intercambiar, o invocar los servicios, lo que hace que sea totalmente indispensable a la hora de ejecutar cualquier tipo de programa.
+
+#### e. Bags
+Las bolsas son un formato para guardar y reproducir datos de un mensaje de ROS, permitiéndonos almacenar una serie de órdenes y después repetirlas secuencialmente.
+
+
+
 
 
