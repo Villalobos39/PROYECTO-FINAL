@@ -323,7 +323,93 @@ El comando rostopic nos proporciona información acerca de los tópicos, y podem
 
 Donde nos mostrará la ayuda de esta función:
 
+#### c. Mensajes
+Un mensaje es una estructura de datos simples que sirven para que los nodos se comuniquen entre sí. 
+Los mensajes soportan la mayoría de estructuras de datos usados en la actualidad (enteros, decimales, booleanos, etc.), así como las estructuras anidadas. 
+Los mensajes son guardados en un ﬁchero msg en un subdirectorio del paquete, y usan el nombre estándar de ROS, por ejemplo:
+ **std_msgs/msg/string.msg;**
+ 
+Como medida de seguridad adicional, los mensajes usan MD5, lo que nos permite saber en todo momento si hay alguna parte del mensaje o del nodo que no esté funcionando correctamente, esto nos permite por ejemplo que cuando un nodo se comunica con otro mediante un mensaje, si este está incompleto, el sistema lo puede detectar al momento y no tener en cuenta este mensaje, realizando una petición de que se vuelva a enviar. 
+Un mensaje puede incluir un tipo especial de mensaje llamado encabezamiento, que incluye algunos metadatos comunes para este tipo de ﬁcheros (número de identiﬁcación, marcas de tiempo, etc.).
 
+#### d. Servicio
+Los servicios son los encargados de permitir que los nodos envíen peticiones y reciban respuestas. 
+Tal y como sucede con los tópicos, aquí disponemos de diversas funciones que nos pueden ayudar a comprender y actuar con nuestro sistema. 
+El comando para acceder a estas funciones funciona de la forma: 
+**$ rosservice [argumento]**
+
+Los diferentes argumentos que existen para esta función son: 
+**-list** 
+
+Muestra la información acerca de un servicio activo. 
+**-call** 
+
+Llama a un servicio con los argumentos seleccionados, por ejemplo para vaciar un servicio, utilizaremos el argumento clear, lo que hará que se borren todos los datos introducidos con anterioridad. 
+**$ rosservice call clear
+ -type**
+ 
+Imprime un servicio. 
+**-ﬁnd**
+
+Encuentra servicios. 
+
+### Sistema de depuración
+Dentro de ROS podemos encontrar un sistema de depuración mediante el cual podemos ver el funcionamiento de cada uno de los nodos y sus interacciones con otros para poder comprobar que el programa se comporte de la forma esperada. Para activar dicho sistema utilizaremos el código: 
+**$ rqt_console**
+
+### Trabajar con datos
+Para trabajar con los datos que nos devuelve el programa mediante sus nodos, utilizaremos la función rosbag, lo primero que vamos a ver es como guardar estos datos para poder procesarlos en el momento que queramos. 
+**$ mkdir bagﬁles**  // esto nos genera un directorio denominado bagﬁles en nuestro sistema. 
+**$ cd bagﬁles**  //accedemos a la carpeta bagﬁles. 
+**$ rosbag record -a**  //comenzamos la grabación de datos.
+
+Podemos probarlo con nuestro programa de prueba de la tortuga que hemos utilizado en el apartado de primeros pasos con ROS, para ello primero inicializamos el programa, y probamos a mover la tortuga, tras varios movimientos podemos cerrar la aplicación rosbag y ver el archivo generado (el ﬁchero lo podemos encontrar dentro de nuestra carpeta /home/bagﬁles, y como nombre tendrá la fecha y hora de creación del ﬁchero).
+
+Para visualizar los datos guardados, solo tendremos que usar la función: 
+**$ rosbag info Nombre_del_ﬁchero**
+
+En nuestro caso quedaría: 
+**$ rosbag info 2013-09-06-19-10-47.bag**
+
+Para volver a recuperar los datos guardados, para que el programa siga por donde se quedó solo tenemos que añadir play tras el comando rosbag:
+**$ rosbag play Nombre_del_ﬁchero**
+
+Que en nuestro ejemplo sería así: 
+**$ rosbag play 2013-09-06-19-10-47.bag**
+
+### Visualizando los datos
+ROS tiene una función que nos puede ayudar mucho a la hora de saber como trabaja nuestro sistema, y de si lo está haciendo de forma correcta, esta función es rqt_graph, y nos mostrará de forma gráﬁca los nodos que están en funcionamiento, sus dependencias y su forma de trabajar. 
+Para utilizar esta función solo tenemos que introducir en un terminal nuevo la función
+ **$ rqt_graph**
+En la imagen que podemos ver a continuación podemos ver un ejemplo de su funcionamiento con el programa turtle.
+
+### Virtualizando ROS
+
+#### a. Rviz
+ROS dispone de una herramienta de visualización en 3D llamada RVIZ que posibilita que nuestro robot Qbo, o prácticamente cualquier otra plataforma robótica, pueda ser representada en imagen 3D, respondiendo en tiempo real a lo que le ocurre en el mundo real. 
+RVIZ se puede usar para mostrar lecturas de sensores, datos devueltos por la visión estereoscópica (Cloud Point), hacer SLAM (localización y mapeo simultáneo) evitando obstáculos, etc. 
+
+En el caso de robots con muchas articulaciones ROS dispone de otra herramienta llamada TF que es una biblioteca que facilita la elaboración en estos casos. De todas formas ROS tiene modelos ya creados para probar con RVIZ:
+
+Lo primero que tenemos que hacer es inicializar ROS, abriendo una ventana desde la terminal y escribiendo en ella: 
+**$ roscore**
+
+Luego abrimos otra ventana desde terminal y escribimos: 
+**$ rosrun rviz rviz**
+
+Cuando terminemos de trabajar con el programa, para cerrarlo simplemente tendremos que ir a la ventana de terminal donde lo activamos y pulsar la combinación de teclas Ctrl + C.
+
+#### b. Gazebo
+Gazebo es un simulador gráﬁco de código abierto que se integra perfectamente con ROS y nos permite virtualizar nuestro robot, así como el entorno sobre el que va a funcionar, permitiéndonos probar el funcionamiento de este en un entorno controlado antes de llevarlo a la realidad, ayudándonos a ahorrar dinero y esfuerzos a la hora de crear un sistema desde cero o utilizar un sistema ya generado con anterioridad. Primero procedemos a instalarlo en nuestro sistema. 
+**$ sudo apt-get install ros-groovy-simulator-gazebo**
+
+Ahora procedemos a instalar el robot de prueba 
+**$ sudo apt-get install ros-groovy-pr2-simulator**
+
+Tenemos multitud de opciones a la hora de utilizar Gazebo, en este caso vamos a inicializar el programa con un mundo virtual vacío sobre el que pondremos un robot de ejemplo creado por los programadores de ROS (Willow Garage), para ello abrimos una ventana de terminal y ponemos la función: 
+**$ roslaunch gazebo_worlds empty_world.launch**
+
+Esto nos abrirá una ventana parecida a esta.
 
 
 
