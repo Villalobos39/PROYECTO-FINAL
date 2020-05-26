@@ -61,7 +61,7 @@ La computación a nivel gráﬁco es la red ROS que se encarga de procesar todos
 
 ○ Temas : Los mensajes se enrutan a través de un sistema de transporte de publicación / suscripción semántica. Un nodo envía un mensaje por publicar a un determinado tema. El tema es un nombre que se utiliza para identiﬁcar el contenido del mensaje.
 
-###La comunidad y ROS
+### La comunidad y ROS
 Los conceptos comunitarios ROS Nivel ROS son recursos que permiten a las comunidades el intercambio del software y del conocimiento. Estos recursos incluyen:
 
 ○ Distribución: Son colecciones de versionadas en pilas que se pueden instalar. Las distribuciones juegan un papel similar al de las distribuciones de Linux.
@@ -74,10 +74,10 @@ Los conceptos comunitarios ROS Nivel ROS son recursos que permiten a las comunid
 
 ○ Blog: El blog de Willow Garage(creador de ROS) ofrece actualizaciones periódicas, incluyendo fotos y videos.
 
-###Instalación del sistema
+### Instalación del sistema
 Vamos a comenzar con la toma de contacto con el programa, y para ello vamos a enumerar los pasos necesarios para poder usarlo en algunos de los sistemas operativos soportados, aunque en nuestro caso se detalla más Ubuntu ya que es con el que se ha realizado este documento.
 
-####a.Sistema Linux
+#### a.Sistema Linux
 Primero comprobamos que tengamos actualizado nuestro sistema, en esta versión podemos encontrar en la parte izquierda de la pantalla principal el programa llamado “update manager”.
 
 a. Para comenzar abrimos la utilidad de Terminal. 
