@@ -170,5 +170,22 @@ También podemos descargar lo básico para el uso usando los dos códigos anteri
 
 Así ya tendremos nuestro sistema preparado para poder usar ROS.
 
+#### c.Sistemas Windows
+Este es posiblemente el más sencillo de todos los sistemas para instalar ROS, aunque no se debe olvidar que los ﬁcheros para trabajar con Windows están en fase Beta, y no están exentos de fallos de programación, y desde la propia página de Willow Garage nos invitan  a ayudar a mejorarlo.
+Para proceder a la instalación solo deberemos ir a la página:
+ http://wiki.ros.org/win_ros/hydro/Msvc%20SDK 
+descargarnos y ejecutar los ﬁcheros necesarios para su correcto funcionamiento.
+
+### Primeros pasos con ROS
+
+#### 1.Iniciar/configurar el programa
+Una vez que tenemos el sistema en nuestro ordenador, vamos a proceder a mostrar el funcionamiento básico de ROS para más adelante poder comprender más a fondo el sistema a nivel jerárquico.
+En este caso para probar que la configuración del programa sea la correcta vamos a utilizar uno de los programas ya creados y que podemos encontrar dentro de la página de ROS, hablamos de turtlesim, que es un sencillo programa que utilizaremos de aquí en adelante para nuestro ejemplo.
+
+a. Para descargarnos esta distribución a nuestro sistema utilizaremos el comando: **$ sudo apt-get install ros-fuerte-ros-tutorials**
+
+b. Después de introducir nuestra contraseña de administrador nos debería aparecer una pantalla como esta:
+
+c. Cuando llegue al 100% terminal volverá al modo de espera y ya tendremos instalado nuestro ejemplo.
 
 
