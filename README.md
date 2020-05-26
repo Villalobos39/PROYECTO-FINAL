@@ -513,18 +513,32 @@ Respecto a la compatibilidad, ROS es casi totalmente compatible con repositorios
 Como futuros proyectos propuestos se podría dividir en dos vertientes, una más teórica, en la cual se pueden desarrollar robots en los entornos virtuales descritos en este documento, e incluso generar un Robot de los disponibles en los laboratorios, para comprobar que todo el programa funcionan de forma correcta,y una vertiente real, donde se vaya utilizando ROS para generar el código necesario para mover un robot real, al que se le pueden ir añadiendo más funciones con el paso del tiempo. Por supuesto estas dos vertientes pueden ser complementaria, ya que lo ideal sería generar un robot en el sistema virtual, probar que todo el código es completamente funcional, y luego cargarlo en nuestro robot real.
 
 ### Fuentes
-○ www.ros.org   
-○ www.willowgarage.com   
+○ www.ros.org  
+
+○ www.willowgarage.com 
+
 ○ www.bipedolandia.es 
+
 ○ http://www.generationrobots.com/en/content/55-ros-robot-operating-system  
+
 ○ http://geeksroom.com/2013/08/ros-el-estandar-de-facto-de-la-industria-de-los-robots 
+
 ○ http://readwrite.com/2013/05/09/how-an-open-source-operating-system-jumpstartedrobotics-research#awesm=~ogKpiH3BrKRskJ  
+
 ○ http://robociencia.com/introduccion-a-ros/  
+
 ○ https://moodle2012-13.ua.es/moodle/mod/wiki/view.php?id=23601 
+
 ○ http://robociencia.com/ros-el-futuro-de-la-robotica-autonoma/ 
-○ http://www.bipedolandia.es/t1654-explicacion-detallada-de-50-minutos-delfuncionamiento-de-kinect-y-ros-robot-operating-system  
+
+○ http://www.bipedolandia.es/t1654-explicacion-detallada-de-50-minutos-delfuncionamiento-de-kinect-y-ros-robot-operating-system
+
 ○ http://www.automatizar.org/2011/09/creando-aplicaciones-para-robots.html  
+
 ○ http://www.instructables.com/id/Getting-Started-with-ROS-Robotic-Operating-Syste/  
+
 ○ ROS By Example GROOVY - Volume 1   Autor: R. Patrick Goebel  
+
 ○ http://es.wikipedia.org/wiki/Robótica 
+
 
