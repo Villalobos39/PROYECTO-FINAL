@@ -82,45 +82,54 @@ a. Para comenzar abrimos la utilidad de Terminal.
 
 b. A continuación preparamos el sistema para que acepte los paquetes de información de la página del repositorio packages.ros.org, para ello usamos la función correspondiente a nuestro sistema.
 
-**$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/ sources.list.d/ros-latest.list'**
+    $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/ sources.list.d/ros-latest.list'
 
 c. Tras introducir la función anterior, nos pedirá la contraseña de usuario para conﬁrmar que queremos aceptar esta función, y terminal volverá a modo espera.
 
 d. Lo siguiente es descargarte el ﬁchero correspondiente a tu teclado, para ello usamos la función:
 
-**$ wget http://packages.ros.org/ros.key -O - | sudo apt-key add**
+    $ wget http://packages.ros.org/ros.key -O - | sudo apt-key add
 
 Por ejemplo, un nodo controla un telémetro láser, un nodo controla los motores de las ruedas, un nodo realiza localización, un nodo realiza la planiﬁcación de ruta, un nodo proporciona una vista gráﬁca del sistema, y así sucesivamente. Sin el Maestro, los nodos no serían capaces de encontrar mensajes entre sí, intercambiar, o invocar los servicios. Un mensaje es simplemente una estructura de datos que comprende los tipos de campos. Los mensajes pueden incluir estructuras arbitrariamente anidadas y matrices .
 Una vez preparado nuestro sistema para instalar ROS procedemos a la instalación del sistema operativo, para ello usamos la función que nos descargara el sistema por completo (en el caso de tener algún tipo de problema con la instalación de alguna fase se puede instalar uno por uno todos los componentes necesarios).
 
 Un nodo envía un mensaje por publicar a un determinado tema. Un nodo que está interesado en un determinado tipo de datos se suscribe al tema correspondiente. Puede haber varios editores y suscriptores concurrentes a un mismo tema, y un único nodo puede publicar y / o suscribirse a múltiples temas. La comunidad y ROS.
 e. Primero comprobamos que esté todo actualizado con la función:
-**$ sudo apt-get update**
+
+    $ sudo apt-get update
 
 Los conceptos comunitarios ROS Nivel ROS son recursos que permiten a las comunidades el intercambio del software y del conocimiento.
 
 f.Luego usamos la función:
-**$ sudo apt-get install ros-groovy-desktop-full**
+
+    $ sudo apt-get install ros-groovy-desktop-full
 
 Y nada más pulsar la tecla intro el programa se pondrá a funcionar descargando todo lo necesario para que el sistema funcione.
 Durante la instalación podremos conﬁgurar varios aspectos que tendrá nuestro sistema, como por ejemplo si solo va a trabajar en modo local, o se podrá utilizar también en remoto.
 
 g. Cuando termine de descargar e instalar todos los paquetes deberemos ver algo parecido a esto:
 
-h. A continuación iniciamos el programa rosdep y comprobamos que esté actualizado, para ello usamos primero la función: **$ sudo rosdep init**
+h. A continuación iniciamos el programa rosdep y comprobamos que esté actualizado, para ello usamos primero la función: 
+    
+    $ sudo rosdep init
 
-i. Luego la función:  **$ rosdep update**
+i. Luego la función:    
+  
+    $ rosdep update
 
 Ya tenemos ROS instalado en nuestro sistema Ubuntu, y ahora solo nos quedaría añadir un par de configuraciones más que son recomendables.
 
 j. La primera es para que las variables de entorno que creemos se añadan automáticamente a nuestra sesión, para ello usamos la función:
-**$ echo “source /opt/ros/groovy/setup.bash” >> ~/.bashrc**
+
+    $ echo “source /opt/ros/groovy/setup.bash” >> ~/.bashrc
 
 Luego: 
-**$ source ~/.bashrc**
+
+    $ source ~/.bashrc
 
 k. También es conveniente instalar rosinstall, que es un añadido que nos permitirá descargarnos fácilmente el código fuente de muchos añadidos con solo un comando, para ello usamos el comando: 
-**$ sudo apt-get install python-rosinstall**
+
+    $ sudo apt-get install python-rosinstall
 
 l. Tras esto ya tendremos nuestro sistema listo para trabajar con el.
 
@@ -128,50 +137,62 @@ l. Tras esto ya tendremos nuestro sistema listo para trabajar con el.
 Para proceder a instalar ROS en MAC OS X, primero deberemos descargarnos un programa denominado Homebrew que nos permitirá y ayudará a instalar todo lo necesario para poder trabajar con él.
 
 La aplicación homebrew se instala escribiendo en el terminal de MAC OS X el siguiente código:
-**ruby -e “$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)”**
+
+    ruby -e “$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)”
 
 tras indicarle al programa que estamos seguros que queremos instalar el programa, se descargara e instalara todo los componentes del programa De forma adicional podemos ejecutar desde terminal el código:
-**brew doctor** 
+    
+    brew doctor
 
 El programa comprobará los archivos que va a necesitar, si están instalados o desactualizados. 
 Lo siguiente que debemos hacer es instalar el software adicional necesario:
-**$ brew update 
-$ brew install cmake**
+
+    $ brew update 
+    $ brew install cmake
 
 Ahora comenzamos a descargar los primeros ﬁcheros necesarios para ROS, en este caso la distribución Hydro.
-**$ brew tap ros/hydro 
-$ brew tap Homebrew/science**
+
+    $ brew tap ros/hydro 
+    $ brew tap Homebrew/science
 
 Ahora necesitaremos añadir a nuestro ﬁchero /.bashrc lo necesario para que hombrew trabaje de forma conjunta con terminal: 
-**export PATH=/usr/local/bin:/usr/local/share/python:$PATH**
-export PYTHONPATH=” /usr/local/python2.7 /site-packages:$PYTHONPATH” 
+
+    export PATH=/usr/local/bin:/usr/local/share/python:$PATH
+    export PYTHONPATH=” /usr/local/python2.7 /site-packages:$PYTHONPATH” 
 
 Ahora conﬁguramos el terminal para que cada vez que lo abramos no tengamos que introducir esta última parte del código:
-**$ brew untap ros/DISTRO**
+
+    $ brew untap ros/DISTRO
 
 Ahora prepararemos nuestro sistema para poder descargar los ultimos ﬁcheros necesarios para usar ROS:
-**$ sudo easy_install pip
-$ sudo pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg Distribute 
-$ sudo rosdep init 
-$ rosdep update**
+    
+    $ sudo easy_install pip
+    $ sudo pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg Distribute 
+    $ sudo rosdep init 
+    $ rosdep update
 
 Ahora vamos a crear un espacio de trabajo para catkin. 
-**$ mkdir ~/ros_catkin_ws 
-$ cd ~/ros_catkin_ws**
+
+    $ mkdir ~/ros_catkin_ws 
+    $ cd ~/ros_catkin_ws
 
 Ahora vamos a instalar las librerías o complementos necesarios para ROS:
-**$ rosinstall_generator desktop-full --rosdistro hydro --deps --wer-only > hydro-desktop-fullwet.rosinstall
-$ wstool init -j8 src hydro-desktop-wet.rosinstall**
+
+    $ rosinstall_generator desktop-full --rosdistro hydro --deps --wer-only > hydro-desktop-fullwet.rosinstall
+    $ wstool init -j8 src hydro-desktop-wet.rosinstall
 
 También podemos descargar lo básico para el uso usando los dos códigos anteriores, pero solo poniendo desktop en lugar de desktop-full. Ahora procedemos a comprobar que tenemos todas las dependencias requeridas:
-**$ rosdep install --from-paths src --ignore-src --rosdistro hydro -y**
+
+    $ rosdep install --from-paths src --ignore-src --rosdistro hydro -y
 
 Así ya tendremos nuestro sistema preparado para poder usar ROS.
 
 #### c. Sistemas Windows
 Este es posiblemente el más sencillo de todos los sistemas para instalar ROS, aunque no se debe olvidar que los ﬁcheros para trabajar con Windows están en fase Beta, y no están exentos de fallos de programación, y desde la propia página de Willow Garage nos invitan  a ayudar a mejorarlo.
 Para proceder a la instalación solo deberemos ir a la página:
- http://wiki.ros.org/win_ros/hydro/Msvc%20SDK 
+
+    http://wiki.ros.org/win_ros/hydro/Msvc%20SDK 
+    
 descargarnos y ejecutar los ﬁcheros necesarios para su correcto funcionamiento.
 
 ### Primeros pasos con ROS
@@ -180,27 +201,35 @@ descargarnos y ejecutar los ﬁcheros necesarios para su correcto funcionamiento
 Una vez que tenemos el sistema en nuestro ordenador, vamos a proceder a mostrar el funcionamiento básico de ROS para más adelante poder comprender más a fondo el sistema a nivel jerárquico.
 En este caso para probar que la configuración del programa sea la correcta vamos a utilizar uno de los programas ya creados y que podemos encontrar dentro de la página de ROS, hablamos de turtlesim, que es un sencillo programa que utilizaremos de aquí en adelante para nuestro ejemplo.
 
-a. Para descargarnos esta distribución a nuestro sistema utilizaremos el comando: **$ sudo apt-get install ros-fuerte-ros-tutorials**
+a. Para descargarnos esta distribución a nuestro sistema utilizaremos el comando: 
+
+    $ sudo apt-get install ros-fuerte-ros-tutorials
 
 b. Después de introducir nuestra contraseña de administrador nos debería aparecer una pantalla como esta:
 
 c. Cuando llegue al 100% terminal volverá al modo de espera y ya tendremos instalado nuestro ejemplo.
 
 #### 2. Ejecutar un programa
-a. Para ejecutar nuestro programa de prueba tendremos que abrir una nueva ventana de terminal y teclear: **$ rosmake turtlesim**
+a. Para ejecutar nuestro programa de prueba tendremos que abrir una nueva ventana de terminal y teclear: 
+
+    $ rosmake turtlesim
 
 b. Luego del que el programa nos generará todo el directorio turtlesim con todo lo necesario para trabajar con él.
 
 También señalar que este paso solo es necesario la primera vez que ejecutamos el programa, las demás veces podremos obviar este paso, ya que en nuestro sistema ya tendremos todos los ﬁcheros generados y solo habrá que activarlos.
 
-c. Después solo tendremos que teclear **$ rosrun turtlesim turtlesim_node**
+c. Después solo tendremos que teclear 
+
+    $ rosrun turtlesim turtlesim_node
 
 d. Finalmente con esto veremos algo parecido a esto:
 
 #### 3. Ejecutar un subprograma
 Ahora vamos a proceder a interactuar con nuestro programa, para ello vamos a activar un subprograma que nos va a permitir manejar con el teclado la tortuga que vemos en nuestra pantalla.
 
-a. Para ello abrimos una nueva ventana de terminal e introducimos: **$ rosrun turtlesim turtle_teleop_key**
+a. Para ello abrimos una nueva ventana de terminal e introducimos: 
+
+    $ rosrun turtlesim turtle_teleop_key
 
 b. Ahora ya puedes mover con las teclas de dirección la tortuga del ejemplo.
 
@@ -244,54 +273,65 @@ Las bolsas son un formato para guardar y reproducir datos de un mensaje de ROS, 
 
 #### a. Espacio de trabajo
 Como en cualquier otro programa, en nuestro sistema necesitaremos un lugar donde trabajar, en este caso se requiere de un área para crear nuestras pilas y paquetes, y su posterior modificación en caso de ser necesario. Para crear un nuevo espacio de trabajo utilizaremos el comando rosws, que se utiliza de la forma: 
-          **$ rosws init [nombre del espacio de trabajo] [localización de los ﬁcheros de ros]**
+          
+            $ rosws init [nombre del espacio de trabajo] [localización de los ﬁcheros de ros]
           
 Por ejemplo, para crear un espacio de trabajo llamado prueba UPCT lo haremos de la forma: 
-          **$ rosws init prueba UPCT  /opt/ros/fuerte**
+          
+            $ rosws init prueba UPCT  /opt/ros/fuerte
           
 Al ejecutar este comando, automáticamente se crearán una serie de archivos necesarios dentro de una carpeta localizada en home/nombre_de_usuario/prueba UPCT, en este caso nos creará setup.bash, setup.sh, setup.zsh además de un archivo oculto denominado .rosinstall dentro de esta carpeta.
 
 ### Sistema de archivos
 Utilizando el comando rosws visto en el punto anterior, todos los paquetes serán incluidos de forma automática dentro de la variable ROS_PACKAGE_PATH cada vez que llamamos al archivo setup.bash del espacio de trabajo necesario. Por ejemplo, para poder crear una subcarpeta dentro de nuestro espacio de trabajo, utilizaremos la función mkdir y añadiremos la carpeta paquete prueba, y esto se haría de la siguiente forma:
-    **$ mkdir prueba UPCT/paquete prueba**
+    
+    $ mkdir prueba UPCT/paquete prueba
 
 A continuación lo que haremos es seleccionar nuestro espacio de trabajo, para que de forma automática todos los paquetes se incluyen en el directorio anterior. 
-    **$ rosws set home/Nombre_de_usuario/prueba UPCT/paquete prueba 
-    $ source /prueba UPCT/setup.bash**
+    
+    $ rosws set home/Nombre_de_usuario/prueba UPCT/paquete prueba 
+    $ source /prueba UPCT/setup.bash
                       
 Si queremos también se puede configurar el programa para dejar configurado el entorno de forma automática para cada vez que se abra un nuevo terminal, para ello utilizaremos las siguientes funciones:
 
-    **$ echo"source/opt/ros/fuerte/setup.bash">>~/.bashrc 
+    $ echo"source/opt/ros/fuerte/setup.bash">>~/.bashrc 
     $ echo"exportROS_PACKAGE_PATH=~/miworkspace:$ROS_PACKAGE_PATH">> ~/.bashrc 
     $ echo"exportROS_WORKSPACE=~/miworkspace">>~/.bashrc 
     $ echo"exportROS_HOSTNAME=localhost">>~/.bashrc 
-    $ echo"exportROS_MASTER_URI=http://localhost:11311">>~/.bashrc**
+    $ echo"exportROS_MASTER_URI=http://localhost:11311">>~/.bashrc
 
 #### a. Packages y Stacks
 Los Packages y los Stacks son los que anteriormente denominamos paquetes y pilas, pero le hemos dejado su nombre original para una mayor facilidad a la hora de familiarizarnos en esta parte del documento. Para ir a una ubicación especíﬁca dentro de un package o stack usaremos la función roscd, que se usa de la forma:
-    **$ roscd Localizacion_del_ﬁchero**
+    
+    $ roscd Localizacion_del_ﬁchero
 
 Si utilizamos esta función sin argumentos, nos llevará directamente al espacio de trabajo Para ver una lista con los ﬁcheros contenidos dentro de un package o stack tecleamos el código rosls:
-    **$ rosls Localizacion_del_ﬁchero**
+    
+    $ rosls Localizacion_del_ﬁchero
 
 Para esta última función existe una pequeña herramienta ya incorporada que nos ayudará en nuestro trabajo, ya que podemos empezar a escribir el nombre de los paquetes o las pilas y cuando tengamos más de dos letras escritas, si pulsamos la tecla tabulador, él nos completará el nombre de forma automática.
 
 #### b. Rospack
 Rospack es una herramienta que sirve para recuperar información en los paquetes de ROS, de forma parecida a como se haría bajo el entorno Linux con los comandos cd o ls. Podemos encontrar una amplia variedad de comandos que van desde la localización de paquetes de ROS en el sistema de archivos, a un listado de pilas disponibles. Una función que nos puede ayudar mucho sería:  
-    **$ rospack help**
+    
+    $ rospack help
 
 Donde nos mostrará todos lo comandos disponibles bajo esta función. Un ejemplo de uno de los comandos disponibles sería, en el caso de querer encontrar un paquete, y se utilizaría de la forma: 
-    **$ rospack ﬁnd Nombre_del_paquete**
+    
+    $ rospack ﬁnd Nombre_del_paquete
 
 #### c. Rosstack
 Rosstack es una herramienta de línea de comandos que nos permite recuperar información sobre las pilas en ROS. Implementa una amplia variedad de comandos que van desde la localización de las pilas de ROS en el sistema de archivos, a la lista de pilas disponibles para el cálculo del árbol de dependencia de las pilas.
 También se utiliza en ROS para el cálculo de la información y para construir las pilas. Su uso es muy parecido al descrito en el apartado anterior con los packages, solo habría que sustituir pack por stack, es decir usar el comando:  
-    **$ rosstack**
+    
+    $ rosstack
 
 ### Motor de ejecución
 El motor de ejecución es una colección de nodos y programas básicos necesarios para poder trabajar con ROS, y es esencial para que todos los nodos se puedan comunicar entre sí. 
 Entre los nodos y programas básicos que se inician con el motor de ejecución podemos encontrar el master, el servidor de parámetros y el nodo rosout que es el encargado de trabajar con toda la información del registro de ROS. Este motor de ejecuta abriendo un terminal exclusivamente para él e introduciendo: 
-    **$ roscore**
+    
+    $ roscore
+    
 Una vez introducido dicho comando, deberíamos ver algo parecido a esto:
 
 ### Obtener datos
@@ -299,7 +339,8 @@ Una vez introducido dicho comando, deberíamos ver algo parecido a esto:
 #### a. Nodos
 Un nodo es como si fuera un ejecutable dentro del paquete de ROS, usa la librería cliente de ROS para comunicarse con otros nodos, y estos pueden publicar o subscribirse a un tópico, además de usar cualquier servicio. ROS nos permitirá usar nodos creados con otros lenguajes de programación (phyton y c+ +) Para poder acceder, modiﬁcar y crear cualquier nodo necesitaremos los paquetes: roscode, rosnode y rosrun.
 El primer paso será activar roscore tal y como hemos visto en el punto anterior. Justo después activaremos nuestro programa de prueba turtle y el nodo teleop turtle para poder ver su funcionamiento. Ahora vamos a veriﬁcar qué nodos están activos, para ello utilizaremos rosnode, introduciendo en el terminal: 
-    **$ rosnode list**
+    
+    $ rosnode list
 
 y se debería ver una respuesta:
 
@@ -307,21 +348,25 @@ Esto signiﬁca que en este caso está activo el nodo “rosout” (es un nodo q
 
 #### b. Tópicos
 Los tópicos, o también llamados temas, es el sistema usado por los nodos para comunicarse entre ellos. Lo primero que debemos hacer para poder comprender los tópicos, es activar los nodos que queramos usar, para ello usamos la función del apartado anterior: 
-    **$ rosrun [nombre_paquete] [nombre_nodo]**
+    
+    $ rosrun [nombre_paquete] [nombre_nodo]
 
 Por facilidad de comprensión y usabilidad, al igual que en los ejemplos anteriores, vamos a hacer uso de los archivos de prueba llamados turtlesim, y turtle teleop.  Ahora podremos usar las ﬂechas del teclado para describir una trayectoria (en caso que no puedas usar las ﬂechas para dirigirla, prueba a tener activa la pantalla de terminal correspondiente al nodo turtle_teleop_key). 
 Para poder ver más a fondo su funcionamiento, usaremos el paquete rqt_graph, cuya función es la de crear gráﬁcos dinámicos del sistema sobre lo que va a suceder en tiempo real. Para asegurarnos de que tenemos este paquete instalado usamos la siguiente función de terminal: 
-    **$ sudo apt-get install ros -<distribucion-usada>-rqt**
+    
+    $ sudo apt-get install ros -<distribucion-usada>-rqt
   
 Sustituyendo distribucion-usada, por tu distribución de ROS (Fuerte, Groovy, etc.)  Una vez veriﬁcado, o en su caso instalado el paquete, procedemos a usarlo, tecleando en un nuevo terminal: 
-    **$ rosrun rqt_graph rqt_graph**
+    
+    $ rosrun rqt_graph rqt_graph
 
 El programa debería mostrar una pantalla parecida a la siguiente:
 
 Si pasas el cursor por encima de turtle1/command_velocity/ te mostrará en diversos colores los nodos y los tópicos de los que hace uso. Tal y como se puede observar, los nodos /turtlesim y /teleop_turtle, se comunican mediante el tópico turtle1/ command_velocity/
 
 El comando rostopic nos proporciona información acerca de los tópicos, y podemos acceder a las diferentes opciones que nos ofrece esta función con el comando: 
-    **$ rostopic -h**
+    
+    $ rostopic -h
 
 Donde nos mostrará la ayuda de esta función:
 
@@ -329,7 +374,8 @@ Donde nos mostrará la ayuda de esta función:
 Un mensaje es una estructura de datos simples que sirven para que los nodos se comuniquen entre sí. 
 Los mensajes soportan la mayoría de estructuras de datos usados en la actualidad (enteros, decimales, booleanos, etc.), así como las estructuras anidadas. 
 Los mensajes son guardados en un ﬁchero msg en un subdirectorio del paquete, y usan el nombre estándar de ROS, por ejemplo:
-    **std_msgs/msg/string.msg;**
+    
+    std_msgs/msg/string.msg;
  
 Como medida de seguridad adicional, los mensajes usan MD5, lo que nos permite saber en todo momento si hay alguna parte del mensaje o del nodo que no esté funcionando correctamente, esto nos permite por ejemplo que cuando un nodo se comunica con otro mediante un mensaje, si este está incompleto, el sistema lo puede detectar al momento y no tener en cuenta este mensaje, realizando una petición de que se vuelva a enviar. 
 Un mensaje puede incluir un tipo especial de mensaje llamado encabezamiento, que incluye algunos metadatos comunes para este tipo de ﬁcheros (número de identiﬁcación, marcas de tiempo, etc.).
@@ -338,51 +384,65 @@ Un mensaje puede incluir un tipo especial de mensaje llamado encabezamiento, que
 Los servicios son los encargados de permitir que los nodos envíen peticiones y reciban respuestas. 
 Tal y como sucede con los tópicos, aquí disponemos de diversas funciones que nos pueden ayudar a comprender y actuar con nuestro sistema. 
 El comando para acceder a estas funciones funciona de la forma: 
-    **$ rosservice [argumento]**
+    
+    $ rosservice [argumento]
 
 Los diferentes argumentos que existen para esta función son: 
-    **-list** 
+    
+    -list
 
 Muestra la información acerca de un servicio activo. 
-    **-call** 
+    
+    -call
 
 Llama a un servicio con los argumentos seleccionados, por ejemplo para vaciar un servicio, utilizaremos el argumento clear, lo que hará que se borren todos los datos introducidos con anterioridad. 
-    **$ rosservice call clear
- -type**
+    
+    $ rosservice call clear
+    
+ -type
  
 Imprime un servicio. 
-    **-ﬁnd**
+
+    -ﬁnd
 
 Encuentra servicios. 
 
 ### Sistema de depuración
 Dentro de ROS podemos encontrar un sistema de depuración mediante el cual podemos ver el funcionamiento de cada uno de los nodos y sus interacciones con otros para poder comprobar que el programa se comporte de la forma esperada. Para activar dicho sistema utilizaremos el código: 
-    **$ rqt_console**
+    
+    $ rqt_console
 
 ### Trabajar con datos
 Para trabajar con los datos que nos devuelve el programa mediante sus nodos, utilizaremos la función rosbag, lo primero que vamos a ver es como guardar estos datos para poder procesarlos en el momento que queramos. 
-    **$ mkdir bagﬁles**  // esto nos genera un directorio denominado bagﬁles en nuestro sistema. 
-    **$ cd bagﬁles**  //accedemos a la carpeta bagﬁles. 
-    **$ rosbag record -a**  //comenzamos la grabación de datos.
+    
+    $ mkdir bagﬁles**  // esto nos genera un directorio denominado bagﬁles en nuestro sistema. 
+    $ cd bagﬁles**  //accedemos a la carpeta bagﬁles. 
+    $ rosbag record -a**  //comenzamos la grabación de datos.
 
 Podemos probarlo con nuestro programa de prueba de la tortuga que hemos utilizado en el apartado de primeros pasos con ROS, para ello primero inicializamos el programa, y probamos a mover la tortuga, tras varios movimientos podemos cerrar la aplicación rosbag y ver el archivo generado (el ﬁchero lo podemos encontrar dentro de nuestra carpeta /home/bagﬁles, y como nombre tendrá la fecha y hora de creación del ﬁchero).
 
 Para visualizar los datos guardados, solo tendremos que usar la función: 
-    **$ rosbag info Nombre_del_ﬁchero**
+    
+    $ rosbag info Nombre_del_ﬁchero
 
 En nuestro caso quedaría: 
-    **$ rosbag info 2013-09-06-19-10-47.bag**
+    
+    $ rosbag info 2013-09-06-19-10-47.bag
 
 Para volver a recuperar los datos guardados, para que el programa siga por donde se quedó solo tenemos que añadir play tras el comando rosbag:
-    **$ rosbag play Nombre_del_ﬁchero**
+    
+    $ rosbag play Nombre_del_ﬁchero
 
 Que en nuestro ejemplo sería así: 
-    **$ rosbag play 2013-09-06-19-10-47.bag**
+    
+    $ rosbag play 2013-09-06-19-10-47.bag
 
 ### Visualizando los datos
 ROS tiene una función que nos puede ayudar mucho a la hora de saber como trabaja nuestro sistema, y de si lo está haciendo de forma correcta, esta función es rqt_graph, y nos mostrará de forma gráﬁca los nodos que están en funcionamiento, sus dependencias y su forma de trabajar. 
 Para utilizar esta función solo tenemos que introducir en un terminal nuevo la función
-    **$ rqt_graph**
+    
+    $ rqt_graph
+    
 En la imagen que podemos ver a continuación podemos ver un ejemplo de su funcionamiento con el programa turtle.
 
 ### Virtualizando ROS
@@ -394,32 +454,39 @@ RVIZ se puede usar para mostrar lecturas de sensores, datos devueltos por la vis
 En el caso de robots con muchas articulaciones ROS dispone de otra herramienta llamada TF que es una biblioteca que facilita la elaboración en estos casos. De todas formas ROS tiene modelos ya creados para probar con RVIZ:
 
 Lo primero que tenemos que hacer es inicializar ROS, abriendo una ventana desde la terminal y escribiendo en ella: 
-    **$ roscore**
+    
+    $ roscore
 
 Luego abrimos otra ventana desde terminal y escribimos: 
-    **$ rosrun rviz rviz**
+    
+    $ rosrun rviz rviz
 
 Cuando terminemos de trabajar con el programa, para cerrarlo simplemente tendremos que ir a la ventana de terminal donde lo activamos y pulsar la combinación de teclas Ctrl + C.
 
 #### b. Gazebo
 Gazebo es un simulador gráﬁco de código abierto que se integra perfectamente con ROS y nos permite virtualizar nuestro robot, así como el entorno sobre el que va a funcionar, permitiéndonos probar el funcionamiento de este en un entorno controlado antes de llevarlo a la realidad, ayudándonos a ahorrar dinero y esfuerzos a la hora de crear un sistema desde cero o utilizar un sistema ya generado con anterioridad. Primero procedemos a instalarlo en nuestro sistema. 
-    **$ sudo apt-get install ros-groovy-simulator-gazebo**
+    
+    $ sudo apt-get install ros-groovy-simulator-gazebo
 
 Ahora procedemos a instalar el robot de prueba 
-    **$ sudo apt-get install ros-groovy-pr2-simulator**
+    
+    $ sudo apt-get install ros-groovy-pr2-simulator
 
 Tenemos multitud de opciones a la hora de utilizar Gazebo, en este caso vamos a inicializar el programa con un mundo virtual vacío sobre el que pondremos un robot de ejemplo creado por los programadores de ROS (Willow Garage), para ello abrimos una ventana de terminal y ponemos la función: 
-    **$ roslaunch gazebo_worlds empty_world.launch**
+    
+    $ roslaunch gazebo_worlds empty_world.launch
 
 Esto nos abrirá una ventana parecida a esta.
 
 Ahora vamos a añadir el robot citado anteriormente, en este caso el robot PR2
-    **$ rosmake pr2_gazebo 
-    $ roslaunch pr2_gazebo pr2.launch**
+    
+    $ rosmake pr2_gazebo 
+    $ roslaunch pr2_gazebo pr2.launch
 
 Una vez que tengamos el robot en nuestro mundo virtual, ya podremos utilizarlo como si estuviéramos en la vida real, o bien mediante nodos automatizados, o bien añadiendo nodos que nos permitan moverlo de forma manual.Y ahora vamos a añadir el robot citado anteriormente, en este caso el robot PR2:
-    **$ rosmake pr2_gazebo 
-    $ roslaunch pr2_gazebo pr2.launch**
+    
+    $ rosmake pr2_gazebo 
+    $ roslaunch pr2_gazebo pr2.launch
 
 Una vez que tengamos el robot en nuestro mundo virtual, ya podremos utilizarlo como si estuviéramos en la vida real, o bien mediante nodos automatizados, o bien añadiendo nodos que nos permitan moverlo de forma manual.
 Cuando terminemos de trabajar con el programa, para cerrarlo simplemente tendremos que ir a la ventana de terminal donde lo activamos y pulsar la combinación de teclas Ctrl + C.
@@ -432,52 +499,65 @@ Ahora que ya conocemos el sistema de ROS en profundidad vamos a proceder a crear
 #### b. Preparando el sistema
 Lo  primero que vamos a hacer es crear nuestro espacio de trabajo, esto nos permitirá tener un lugar donde guardar nuestro programa y poder trabajar tanto con el que vamos a crear ahora como con proyectos personales futuros. 
 Vamos a crear nuestro espacio de trabajo, indicando a nuestro sistema que genere todo lo necesario para utilizarlo como un paquete de ROS, al igual que lo tiene en el directorio opt/ROS:
-    **rosws init ~/groovy_workspace /opt/ros/groovy**
+    
+    rosws init ~/groovy_workspace /opt/ros/groovy
 
 Para crear nuestro directorio utilizaremos el comando mkdir, de la forma:
-    **$ mkdir [espacio/de/trabajo]**
+    
+    $ mkdir [espacio/de/trabajo]
 
 En nuestro ejemplo hemos decidido crear nuestro espacio de trabajo dentro de una carpeta llamada UPCT en el directorio groovy_workspace: 
-    **$ mkdir ~/groovy_workspace/UPCT**
+    
+    $ mkdir ~/groovy_workspace/UPCT
 
 Ahora procedemos a indicarle a nuestro sistema que este directorio recién creado va a ser un espacio de trabajo de ROS:
-    **$ rosws set ~/groovy_workspace/UPCT**
+    
+    $ rosws set ~/groovy_workspace/UPCT
 
 Ahora lo que hay que hacer es conﬁgurar el archivo .bash para indicarle a cada terminal donde debe trabajar:
-    **$ source ~/groovy_workspace/setup.bash**
+    
+    $ source ~/groovy_workspace/setup.bash
 
 Hay que destacar que deberemos de utilizar este último comando en cada uno de los terminales abiertos que queramos trabajar con nuestro sistema, o bien conﬁgurarlo dentro del repositorio general para que lo seleccione de forma automática. 
 
 Para conﬁrmar que nuestro directorio lo reconoce ROS como un directorio válido de trabajo utilizaremos la función: 
-    **$ echo $ROS_PACKAGE_PATH**
+    
+    $ echo $ROS_PACKAGE_PATH
 
 A lo que veremos una pantalla parecida a esta:
 
 #### c. Creando nuestro paquete
 Ahora vamos a crear nuestro paquete, que será capaz de contener nuestro programa. Lo primero que vamos a hacer es acceder al espacio que hemos creado, para ellos usamos en nuestro caso la función: 
-    **$ cd ~/groovy_workspace/UPCT**
+    
+    $ cd ~/groovy_workspace/UPCT
 
 Ahora procedemos a crear el paquete que contendrá nuestro futuro programa: 
-    **$ roscreate-pkg UPCT_PFC std_msgs rospy roscpp 55**
+    
+    $ roscreate-pkg UPCT_PFC std_msgs rospy roscpp 55
 
 Mediante esta función generamos un paquete llamado UPCT_PFC que depende de std_msgs, rospy y roscpp:
 
 Ahora lo que vamos a hacer es comprobar que ROS es capaz de encontrar este nuevo paquete :  
-    **$ rospack ﬁnd UPCT_PFC**
+    
+    $ rospack ﬁnd UPCT_PFC
 
 A lo que veremos en pantalla una respuesta como esta:  
-    **/home/parallels/groovy_workspace/UPCT/UPCT_PFC**
+    
+    /home/parallels/groovy_workspace/UPCT/UPCT_PFC
 
 Ahora procedemos a construir nuestro paquete y para ellos solo tenemos que introducir en nuestro terminal: 
-    **$ rosmake UPCT_PFC**
+    
+    $ rosmake UPCT_PFC
 
 #### d. Preparando nuestro programa
 Ahora vamos a hacer unos pasos opcionales pero altamente recomendables antes de empezar a crear nuestro programa, que es modiﬁcar los ﬁcheros Manifest.xml y Mainpage.dox En este caso Linux trae su propia función para editar estos documentos llamado gedit Primero accedemos a la carpeta contenedora :
-    **$ cd UPCT_PFC**
+    
+    $ cd UPCT_PFC
 
 Ahora usamos la función descrita antes para modiﬁcar nuestro ﬁchero: 
-    **$ gedit manifest.xml
-    $ gedit mainpage.dox**
+    
+    $ gedit manifest.xml
+    $ gedit mainpage.dox
 
 Estos ﬁcheros nos ayudan a tener una idea general del proyecto, de su autor y de su forma de funcionar, y puede ayudar a cualquier persona a saber si lo que busca lo va a encontrar en este paquete o no, así como mantener una forma de jerarquizar los paquetes iguales para todo el mundo.
 
@@ -487,11 +567,13 @@ Ahora que ya tenemos todo listo procedemos a crear nuestro ﬁchero ejecutable, 
 A continuación abrimos el ﬁchero que acabamos de crear con un programa de edición de texto, o bien usando gedit tal y como lo hemos usado en el apartado anterior, y copiamos el siguiente código:
 
 Tras introducir el código, lo guardamos y lo cerramos, y ahora procedemos a editar el ﬁchero CMakeList.txt y añadimos al ﬁnal de todo el código: 
-    **rosbuild_add_executable(hola_mundo src/holamundo.cpp)**
+    
+    rosbuild_add_executable(hola_mundo src/holamundo.cpp)
 
 Esto hace que cuando generemos nuestro programa el sistema generará un ejecutable con el nombre hola_mundo, y cuyo código estará en la carpeta src/holamundo.cpp. 
 Una vez realizado esto, debemos generar nuestro programa, para ello introducimos en nuestro terminal:  
-    **$ make** 
+    
+    $ make
 
 Lo que nos tras unos segundos nos devolverá una salida por pantalla parecida a esta:
 
@@ -500,19 +582,22 @@ Así tendremos nuestro programa creado y listo para ser usado.
 #### f. Arrancando nuestro programa
 Una vez ya tenemos nuestro programa creado vamos a proceder a probarlo, para ello lo que hacemos es llamar a nuestro nodo tal y como hemos enseñado dentro del apartado correspondiente 
 Lo primero que hay que hacer es llamar a nuestro nodo master, es decir, abrimos un nuevo terminal y ejecutamos 
-   **$ roscore**
+   
+    $ roscore
 
 Ahora volvemos a nuestro terminal primero en introducimos la función 
-      **$ rosrun UPCT_PFC hola_mundo**
+      
+     $ rosrun UPCT_PFC hola_mundo
 
 Tras lo que veremos una salida por pantalla parecida a esta:
 
 En el caso que no se inicie el programa, comprueba que tienes en una pantalla de terminal diferente activado roscore, y que en la pantalla con la que estás trabajando has ejecutado con anterioridad la función:
 
-    **$ source ~/groovy_workspace/setup.bash**
+     $ source ~/groovy_workspace/setup.bash
 
 Ahora vamos a comprobar de forma gráﬁca que nuestro nodo está en funcionamiento, para ello abrimos una nueva pantalla de terminal y ejecutamos:  
-    **$ rqt_graph**
+    
+    $ rqt_graph
 
 ### Conclusión
 Como hemos podido ver a lo largo de todo el documento, el sistema ROS es un sistema robótico muy completo que nos permite utilizar tanto el código antiguo de otros proyectos, como uno nuevo generado directamente para nuestro sistema, además de contar con soporte para una gran multitud de robots y sensores existentes en el mercado, y otra de las ventajas de las que se ha hablado es de una gran comunidad que se está dedicando a mejorar día a día el sistema, así como de ampliar las compatibilidades tanto con sistemas nuevos (como puede ser Raspberry Pi), como con los últimos sensores y actuadores disponibles en el mercado. ROS es un sistema que en la actualidad cuenta con una gran cantidad de personas a nivel mundial que se dedican al mantenimiento y creación de nuevos repositorios, así como a la mejora del propio sistema, provocando una rápida adaptación a cualquier cambio.
