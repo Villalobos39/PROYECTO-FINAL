@@ -1,3 +1,4 @@
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/LOGO_TECNM_GRIS.png) ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/sistemas%20computacionales.png) 
 # PROYECTO-FINAL: Sistema Operativo Robótico
 
 ## ROS (Robot operating system).
