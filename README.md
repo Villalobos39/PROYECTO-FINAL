@@ -96,7 +96,7 @@ d. Lo siguiente es descargarte el ﬁchero correspondiente a tu teclado, para el
 
     $ wget http://packages.ros.org/ros.key -O - | sudo apt-key add
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/4.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/4.png)
 
 Por ejemplo, un nodo controla un telémetro láser, un nodo controla los motores de las ruedas, un nodo realiza localización, un nodo realiza la planiﬁcación de ruta, un nodo proporciona una vista gráﬁca del sistema, y así sucesivamente. Sin el Maestro, los nodos no serían capaces de encontrar mensajes entre sí, intercambiar, o invocar los servicios. Un mensaje es simplemente una estructura de datos que comprende los tipos de campos. Los mensajes pueden incluir estructuras arbitrariamente anidadas y matrices .
 Una vez preparado nuestro sistema para instalar ROS procedemos a la instalación del sistema operativo, para ello usamos la función que nos descargara el sistema por completo (en el caso de tener algún tipo de problema con la instalación de alguna fase se puede instalar uno por uno todos los componentes necesarios).
@@ -106,7 +106,7 @@ e. Primero comprobamos que esté todo actualizado con la función:
 
     $ sudo apt-get update
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/5.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/5.png)
 
 Los conceptos comunitarios ROS Nivel ROS son recursos que permiten a las comunidades el intercambio del software y del conocimiento.
 
@@ -125,13 +125,13 @@ h. A continuación iniciamos el programa rosdep y comprobamos que esté actualiz
     
     $ sudo rosdep init
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/7.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/7.png)
 
 i. Luego la función:    
   
     $ rosdep update
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/8.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/8.png)
 
 Ya tenemos ROS instalado en nuestro sistema Ubuntu, y ahora solo nos quedaría añadir un par de configuraciones más que son recomendables.
 
@@ -253,7 +253,7 @@ a. Para ello abrimos una nueva ventana de terminal e introducimos:
 
     $ rosrun turtlesim turtle_teleop_key
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/12.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/12.png)
 
 b. Ahora ya puedes mover con las teclas de dirección la tortuga del ejemplo.
 
@@ -321,7 +321,7 @@ Utilizando el comando rosws visto en el punto anterior, todos los paquetes será
     
     $ mkdir prueba UPCT/paquete prueba
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/17.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/17.png)
 
 A continuación lo que haremos es seleccionar nuestro espacio de trabajo, para que de forma automática todos los paquetes se incluyen en el directorio anterior. 
     
@@ -458,7 +458,7 @@ Dentro de ROS podemos encontrar un sistema de depuración mediante el cual podem
     
     $ rqt_console
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/23.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/23.png)
 
 ### Trabajar con datos
 Para trabajar con los datos que nos devuelve el programa mediante sus nodos, utilizaremos la función rosbag, lo primero que vamos a ver es como guardar estos datos para poder procesarlos en el momento que queramos. 
@@ -473,13 +473,13 @@ Para visualizar los datos guardados, solo tendremos que usar la función:
     
     $ rosbag info Nombre_del_ﬁchero
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/24.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/24.png)
 
 En nuestro caso quedaría: 
     
     $ rosbag info 2013-09-06-19-10-47.bag
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/26.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/26.png)
 
 Para volver a recuperar los datos guardados, para que el programa siga por donde se quedó solo tenemos que añadir play tras el comando rosbag:
     
@@ -574,7 +574,7 @@ Ahora procedemos a indicarle a nuestro sistema que este directorio recién cread
     
     $ rosws set ~/groovy_workspace/UPCT
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/31.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/31.png)
 
 Ahora lo que hay que hacer es conﬁgurar el archivo .bash para indicarle a cada terminal donde debe trabajar:
     
@@ -615,7 +615,7 @@ Ahora procedemos a construir nuestro paquete y para ellos solo tenemos que intro
     
     $ rosmake UPCT_PFC
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/34.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/34.png)
 
 #### d. Preparando nuestro programa
 Ahora vamos a hacer unos pasos opcionales pero altamente recomendables antes de empezar a crear nuestro programa, que es modiﬁcar los ﬁcheros Manifest.xml y Mainpage.dox En este caso Linux trae su propia función para editar estos documentos llamado gedit Primero accedemos a la carpeta contenedora :
@@ -627,7 +627,7 @@ Ahora usamos la función descrita antes para modiﬁcar nuestro ﬁchero:
     $ gedit manifest.xml
     $ gedit mainpage.dox
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/35.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/35.png)
 
 Estos ﬁcheros nos ayudan a tener una idea general del proyecto, de su autor y de su forma de funcionar, y puede ayudar a cualquier persona a saber si lo que busca lo va a encontrar en este paquete o no, así como mantener una forma de jerarquizar los paquetes iguales para todo el mundo.
 
@@ -680,7 +680,7 @@ Ahora vamos a comprobar de forma gráﬁca que nuestro nodo está en funcionamie
     
     $ rqt_graph
     
-    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/42.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/42.png)
 
 ### Conclusión
 Como hemos podido ver a lo largo de todo el documento, el sistema ROS es un sistema robótico muy completo que nos permite utilizar tanto el código antiguo de otros proyectos, como uno nuevo generado directamente para nuestro sistema, además de contar con soporte para una gran multitud de robots y sensores existentes en el mercado, y otra de las ventajas de las que se ha hablado es de una gran comunidad que se está dedicando a mejorar día a día el sistema, así como de ampliar las compatibilidades tanto con sistemas nuevos (como puede ser Raspberry Pi), como con los últimos sensores y actuadores disponibles en el mercado. ROS es un sistema que en la actualidad cuenta con una gran cantidad de personas a nivel mundial que se dedican al mantenimiento y creación de nuevos repositorios, así como a la mejora del propio sistema, provocando una rápida adaptación a cualquier cambio.
