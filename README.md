@@ -548,6 +548,7 @@ Una vez que tengamos el robot en nuestro mundo virtual, ya podremos utilizarlo c
 
 ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/29.png)
 ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/30.png)
+
 Cuando terminemos de trabajar con el programa, para cerrarlo simplemente tendremos que ir a la ventana de terminal donde lo activamos y pulsar la combinación de teclas Ctrl + C.
 
 
