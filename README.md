@@ -78,7 +78,11 @@ Vamos a comenzar con la toma de contacto con el programa, y para ello vamos a en
 #### a.Sistema Linux
 Primero comprobamos que tengamos actualizado nuestro sistema, en esta versión podemos encontrar en la parte izquierda de la pantalla principal el programa llamado “update manager”.
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/1.png)
+
 a. Para comenzar abrimos la utilidad de Terminal. 
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/2.png)
 
 b. A continuación preparamos el sistema para que acepte los paquetes de información de la página del repositorio packages.ros.org, para ello usamos la función correspondiente a nuestro sistema.
 
@@ -86,9 +90,13 @@ b. A continuación preparamos el sistema para que acepte los paquetes de informa
 
 c. Tras introducir la función anterior, nos pedirá la contraseña de usuario para conﬁrmar que queremos aceptar esta función, y terminal volverá a modo espera.
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/3.png)
+
 d. Lo siguiente es descargarte el ﬁchero correspondiente a tu teclado, para ello usamos la función:
 
     $ wget http://packages.ros.org/ros.key -O - | sudo apt-key add
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/4.png)
 
 Por ejemplo, un nodo controla un telémetro láser, un nodo controla los motores de las ruedas, un nodo realiza localización, un nodo realiza la planiﬁcación de ruta, un nodo proporciona una vista gráﬁca del sistema, y así sucesivamente. Sin el Maestro, los nodos no serían capaces de encontrar mensajes entre sí, intercambiar, o invocar los servicios. Un mensaje es simplemente una estructura de datos que comprende los tipos de campos. Los mensajes pueden incluir estructuras arbitrariamente anidadas y matrices .
 Una vez preparado nuestro sistema para instalar ROS procedemos a la instalación del sistema operativo, para ello usamos la función que nos descargara el sistema por completo (en el caso de tener algún tipo de problema con la instalación de alguna fase se puede instalar uno por uno todos los componentes necesarios).
@@ -97,6 +105,8 @@ Un nodo envía un mensaje por publicar a un determinado tema. Un nodo que está 
 e. Primero comprobamos que esté todo actualizado con la función:
 
     $ sudo apt-get update
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/5.png)
 
 Los conceptos comunitarios ROS Nivel ROS son recursos que permiten a las comunidades el intercambio del software y del conocimiento.
 
@@ -109,13 +119,19 @@ Durante la instalación podremos conﬁgurar varios aspectos que tendrá nuestro
 
 g. Cuando termine de descargar e instalar todos los paquetes deberemos ver algo parecido a esto:
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/6.png) 
+
 h. A continuación iniciamos el programa rosdep y comprobamos que esté actualizado, para ello usamos primero la función: 
     
     $ sudo rosdep init
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/7.png)
 
 i. Luego la función:    
   
     $ rosdep update
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/8.png)
 
 Ya tenemos ROS instalado en nuestro sistema Ubuntu, y ahora solo nos quedaría añadir un par de configuraciones más que son recomendables.
 
@@ -207,6 +223,8 @@ a. Para descargarnos esta distribución a nuestro sistema utilizaremos el comand
 
 b. Después de introducir nuestra contraseña de administrador nos debería aparecer una pantalla como esta:
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/9.png)
+
 c. Cuando llegue al 100% terminal volverá al modo de espera y ya tendremos instalado nuestro ejemplo.
 
 #### 2. Ejecutar un programa
@@ -218,11 +236,15 @@ b. Luego del que el programa nos generará todo el directorio turtlesim con todo
 
 También señalar que este paso solo es necesario la primera vez que ejecutamos el programa, las demás veces podremos obviar este paso, ya que en nuestro sistema ya tendremos todos los ﬁcheros generados y solo habrá que activarlos.
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/10.png)
+
 c. Después solo tendremos que teclear 
 
     $ rosrun turtlesim turtlesim_node
 
 d. Finalmente con esto veremos algo parecido a esto:
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/11.png)
 
 #### 3. Ejecutar un subprograma
 Ahora vamos a proceder a interactuar con nuestro programa, para ello vamos a activar un subprograma que nos va a permitir manejar con el teclado la tortuga que vemos en nuestra pantalla.
@@ -230,8 +252,12 @@ Ahora vamos a proceder a interactuar con nuestro programa, para ello vamos a act
 a. Para ello abrimos una nueva ventana de terminal e introducimos: 
 
     $ rosrun turtlesim turtle_teleop_key
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/12.png)
 
 b. Ahora ya puedes mover con las teclas de dirección la tortuga del ejemplo.
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/13.png)
 
 ### ROS en profundidad
 Tras una breve explicación vamos a proceder a una explicación más en profundidad de cómo funciona ROS, su jerarquía y su forma de trabajar.
@@ -251,10 +277,16 @@ Es la unidad principal de organización en ROS, contiene todo lo necesario para 
 #### Nodo
 Son los procesos ejecutable que están incluidos dentro de los paquetes. Normalmente se utilizan varios nodos en los programas.
 
+Esquema de la estructura: 
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/14.png)
+
 ### Computación en ROS
 
 #### a. Servicios
 Es el tipo de arquitectura encargada de realizar la comunicación entre nodos, utilizan dos tipos de mensajes, uno para la solicitud, y otro que es la respuesta dada por el otro nodo a esa petición. En los programas podremos encontrar nodos servidor y nodos clientes. Tras realizar la solicitud, el nodo servidor se queda en modo espera hasta recibir respuesta por parte del nodo cliente, y en el caso de que sea el cliente el que realiza una petición, el nodo servidor la procesa y responderá al cliente con la información requerida.
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/15.png)
 
 #### b. Tópicos
 Tópicos o temas, son los nombres que identiﬁcan el contenido de un mensaje; y estos se enrutan de dos formas, una publicador y otra suscriptor. Un nodo que está interesado en un determinado tipo de datos se suscribe al tema correspondiente. 
@@ -282,10 +314,14 @@ Por ejemplo, para crear un espacio de trabajo llamado prueba UPCT lo haremos de 
           
 Al ejecutar este comando, automáticamente se crearán una serie de archivos necesarios dentro de una carpeta localizada en home/nombre_de_usuario/prueba UPCT, en este caso nos creará setup.bash, setup.sh, setup.zsh además de un archivo oculto denominado .rosinstall dentro de esta carpeta.
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/16.png)
+
 ### Sistema de archivos
 Utilizando el comando rosws visto en el punto anterior, todos los paquetes serán incluidos de forma automática dentro de la variable ROS_PACKAGE_PATH cada vez que llamamos al archivo setup.bash del espacio de trabajo necesario. Por ejemplo, para poder crear una subcarpeta dentro de nuestro espacio de trabajo, utilizaremos la función mkdir y añadiremos la carpeta paquete prueba, y esto se haría de la siguiente forma:
     
     $ mkdir prueba UPCT/paquete prueba
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/17.png)
 
 A continuación lo que haremos es seleccionar nuestro espacio de trabajo, para que de forma automática todos los paquetes se incluyen en el directorio anterior. 
     
@@ -334,6 +370,8 @@ Entre los nodos y programas básicos que se inician con el motor de ejecución p
     
 Una vez introducido dicho comando, deberíamos ver algo parecido a esto:
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/18.png)
+
 ### Obtener datos
 
 #### a. Nodos
@@ -343,6 +381,8 @@ El primer paso será activar roscore tal y como hemos visto en el punto anterior
     $ rosnode list
 
 y se debería ver una respuesta:
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/19.png)
 
 Esto signiﬁca que en este caso está activo el nodo “rosout” (es un nodo que siempre tiene que estar activo, y es el encargado de recoger y registrar todos los nodos de depuración), y los nodos turtlesim (nos muestra la tortuga por pantalla) y teleop turtle (encargada de mover la tortuga cuando pulsamos las teclas de dirección de nuestro equipo).
 
@@ -362,13 +402,19 @@ Sustituyendo distribucion-usada, por tu distribución de ROS (Fuerte, Groovy, et
 
 El programa debería mostrar una pantalla parecida a la siguiente:
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/20.png)
+
 Si pasas el cursor por encima de turtle1/command_velocity/ te mostrará en diversos colores los nodos y los tópicos de los que hace uso. Tal y como se puede observar, los nodos /turtlesim y /teleop_turtle, se comunican mediante el tópico turtle1/ command_velocity/
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/21.png)
 
 El comando rostopic nos proporciona información acerca de los tópicos, y podemos acceder a las diferentes opciones que nos ofrece esta función con el comando: 
     
     $ rostopic -h
 
 Donde nos mostrará la ayuda de esta función:
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/22.png)
 
 #### c. Mensajes
 Un mensaje es una estructura de datos simples que sirven para que los nodos se comuniquen entre sí. 
@@ -411,6 +457,8 @@ Encuentra servicios.
 Dentro de ROS podemos encontrar un sistema de depuración mediante el cual podemos ver el funcionamiento de cada uno de los nodos y sus interacciones con otros para poder comprobar que el programa se comporte de la forma esperada. Para activar dicho sistema utilizaremos el código: 
     
     $ rqt_console
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/23.png)
 
 ### Trabajar con datos
 Para trabajar con los datos que nos devuelve el programa mediante sus nodos, utilizaremos la función rosbag, lo primero que vamos a ver es como guardar estos datos para poder procesarlos en el momento que queramos. 
@@ -424,10 +472,14 @@ Podemos probarlo con nuestro programa de prueba de la tortuga que hemos utilizad
 Para visualizar los datos guardados, solo tendremos que usar la función: 
     
     $ rosbag info Nombre_del_ﬁchero
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/24.png)
 
 En nuestro caso quedaría: 
     
     $ rosbag info 2013-09-06-19-10-47.bag
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/26.png)
 
 Para volver a recuperar los datos guardados, para que el programa siga por donde se quedó solo tenemos que añadir play tras el comando rosbag:
     
@@ -453,6 +505,8 @@ RVIZ se puede usar para mostrar lecturas de sensores, datos devueltos por la vis
 
 En el caso de robots con muchas articulaciones ROS dispone de otra herramienta llamada TF que es una biblioteca que facilita la elaboración en estos casos. De todas formas ROS tiene modelos ya creados para probar con RVIZ:
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/27.png)
+
 Lo primero que tenemos que hacer es inicializar ROS, abriendo una ventana desde la terminal y escribiendo en ella: 
     
     $ roscore
@@ -476,7 +530,9 @@ Tenemos multitud de opciones a la hora de utilizar Gazebo, en este caso vamos a 
     
     $ roslaunch gazebo_worlds empty_world.launch
 
-Esto nos abrirá una ventana parecida a esta.
+Esto nos abrirá una ventana parecida a esta:
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/28.png)
 
 Ahora vamos a añadir el robot citado anteriormente, en este caso el robot PR2
     
@@ -489,7 +545,11 @@ Una vez que tengamos el robot en nuestro mundo virtual, ya podremos utilizarlo c
     $ roslaunch pr2_gazebo pr2.launch
 
 Una vez que tengamos el robot en nuestro mundo virtual, ya podremos utilizarlo como si estuviéramos en la vida real, o bien mediante nodos automatizados, o bien añadiendo nodos que nos permitan moverlo de forma manual.
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/29.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/30.png)
 Cuando terminemos de trabajar con el programa, para cerrarlo simplemente tendremos que ir a la ventana de terminal donde lo activamos y pulsar la combinación de teclas Ctrl + C.
+
 
 ### Aplicación
 
@@ -513,6 +573,8 @@ En nuestro ejemplo hemos decidido crear nuestro espacio de trabajo dentro de una
 Ahora procedemos a indicarle a nuestro sistema que este directorio recién creado va a ser un espacio de trabajo de ROS:
     
     $ rosws set ~/groovy_workspace/UPCT
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/31.png)
 
 Ahora lo que hay que hacer es conﬁgurar el archivo .bash para indicarle a cada terminal donde debe trabajar:
     
@@ -526,6 +588,8 @@ Para conﬁrmar que nuestro directorio lo reconoce ROS como un directorio válid
 
 A lo que veremos una pantalla parecida a esta:
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/32.png)
+
 #### c. Creando nuestro paquete
 Ahora vamos a crear nuestro paquete, que será capaz de contener nuestro programa. Lo primero que vamos a hacer es acceder al espacio que hemos creado, para ellos usamos en nuestro caso la función: 
     
@@ -536,6 +600,8 @@ Ahora procedemos a crear el paquete que contendrá nuestro futuro programa:
     $ roscreate-pkg UPCT_PFC std_msgs rospy roscpp 55
 
 Mediante esta función generamos un paquete llamado UPCT_PFC que depende de std_msgs, rospy y roscpp:
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/33.png)
 
 Ahora lo que vamos a hacer es comprobar que ROS es capaz de encontrar este nuevo paquete :  
     
@@ -548,6 +614,8 @@ A lo que veremos en pantalla una respuesta como esta:
 Ahora procedemos a construir nuestro paquete y para ellos solo tenemos que introducir en nuestro terminal: 
     
     $ rosmake UPCT_PFC
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/34.png)
 
 #### d. Preparando nuestro programa
 Ahora vamos a hacer unos pasos opcionales pero altamente recomendables antes de empezar a crear nuestro programa, que es modiﬁcar los ﬁcheros Manifest.xml y Mainpage.dox En este caso Linux trae su propia función para editar estos documentos llamado gedit Primero accedemos a la carpeta contenedora :
@@ -558,13 +626,22 @@ Ahora usamos la función descrita antes para modiﬁcar nuestro ﬁchero:
     
     $ gedit manifest.xml
     $ gedit mainpage.dox
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/35.png)
 
 Estos ﬁcheros nos ayudan a tener una idea general del proyecto, de su autor y de su forma de funcionar, y puede ayudar a cualquier persona a saber si lo que busca lo va a encontrar en este paquete o no, así como mantener una forma de jerarquizar los paquetes iguales para todo el mundo.
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/36.png)
 
 #### e. Construyendo nuestro programa
 Ahora que ya tenemos todo listo procedemos a crear nuestro ﬁchero ejecutable, para ello vamos a nuestro sistema de ﬁcheros la /UPCT_PFC / src, y le damos al botón derecho y pulsamos en crear un nuevo documento, documento en blanco. El siguiente paso es poner el nombre a nuestro ﬁchero en este caso lo llamaremos holamundo.cpp
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/37.png)
+
 A continuación abrimos el ﬁchero que acabamos de crear con un programa de edición de texto, o bien usando gedit tal y como lo hemos usado en el apartado anterior, y copiamos el siguiente código:
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/38.png)
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/39.png)
 
 Tras introducir el código, lo guardamos y lo cerramos, y ahora procedemos a editar el ﬁchero CMakeList.txt y añadimos al ﬁnal de todo el código: 
     
@@ -576,6 +653,8 @@ Una vez realizado esto, debemos generar nuestro programa, para ello introducimos
     $ make
 
 Lo que nos tras unos segundos nos devolverá una salida por pantalla parecida a esta:
+
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/40.png)
 
 Así tendremos nuestro programa creado y listo para ser usado.
 
@@ -591,6 +670,8 @@ Ahora volvemos a nuestro terminal primero en introducimos la función
 
 Tras lo que veremos una salida por pantalla parecida a esta:
 
+![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/41.png)
+
 En el caso que no se inicie el programa, comprueba que tienes en una pantalla de terminal diferente activado roscore, y que en la pantalla con la que estás trabajando has ejecutado con anterioridad la función:
 
      $ source ~/groovy_workspace/setup.bash
@@ -598,6 +679,8 @@ En el caso que no se inicie el programa, comprueba que tienes en una pantalla de
 Ahora vamos a comprobar de forma gráﬁca que nuestro nodo está en funcionamiento, para ello abrimos una nueva pantalla de terminal y ejecutamos:  
     
     $ rqt_graph
+    
+    ![ERROR FATAL jiji](https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/42.png)
 
 ### Conclusión
 Como hemos podido ver a lo largo de todo el documento, el sistema ROS es un sistema robótico muy completo que nos permite utilizar tanto el código antiguo de otros proyectos, como uno nuevo generado directamente para nuestro sistema, además de contar con soporte para una gran multitud de robots y sensores existentes en el mercado, y otra de las ventajas de las que se ha hablado es de una gran comunidad que se está dedicando a mejorar día a día el sistema, así como de ampliar las compatibilidades tanto con sistemas nuevos (como puede ser Raspberry Pi), como con los últimos sensores y actuadores disponibles en el mercado. ROS es un sistema que en la actualidad cuenta con una gran cantidad de personas a nivel mundial que se dedican al mantenimiento y creación de nuevos repositorios, así como a la mejora del propio sistema, provocando una rápida adaptación a cualquier cambio.
