@@ -3,7 +3,7 @@
     <img src="https://github.com/Villalobos39/PROYECTO-FINAL/blob/master/Imagenes/sistemas%20computacionales.png" width="350" alt="accessibility text">
 </p>
 
-# PROYECTO-FINAL: Sistema Operativo Robótico
+# PROYECTO-FINAL: Sistema Operativo Robótico.
 
 ## ROS (Robot operating system).
 
