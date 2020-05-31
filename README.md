@@ -1,6 +1,6 @@
 <p align="left">
-    <img src="Imagenes/LOGO_TECNM_GRIS.png" width="350" title="hover text">
-    <img src="Imagenes/sistemas%20computacionales.png" width="350" alt="accessibility text">
+    <img src="LOGO_TECNM_GRIS.png" width="350" title="hover text">
+    <img src="sistemas%20computacionales.png" width="350" alt="accessibility text">
 </p>
 
 # PROYECTO-FINAL: Sistema Operativo Robótico.
